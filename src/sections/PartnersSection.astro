@@ -13,7 +13,7 @@ import UltimateCPE from "@/assets/partners/ultimatecpe.jpg";
 const {
   id = "partners",
   class: className = "",
-  eyebrow = "OUR PARTNERS",
+  eyebrow = "Our Partners",
   title = "Businesses and Services Recommended By i-75 CPA Review.",
   subtitle = "We Partner with Many Other CPA Review programs that can benefit candidates as well as CPE programs that can help benefit those who have already passed.",
 } = Astro.props;
@@ -58,39 +58,35 @@ const partners = [
   }
 ];
 ---
-
-<section id={id} class={`py-16 md:py-24 bg-light-primary ${className}`}>
-  <div class="w-85/100 max-w-7xl mx-auto">
+<section id={id} class={`py-16 md:py-24 border-t-3 border-light-primary ${className}`}>
+  <div class="inner-section flex flex-col items-center">
     
     <!-- Section Header -->
     <div class="text-center space-y-4 mb-12 md:mb-16">
         <div class="flex flex-col gap-4">
-      <Heading tagName="span" className="h4 text-primary uppercase tracking-widest">
-        {eyebrow}
-      </Heading>
       <Heading 
         tagName="h2" 
-        className="h2 font-bold text-dark-primary"
+        className="h2 font-bold text-light-primary"
       >
-        {title}
+        {eyebrow} - {title}
       </Heading>
       </div>
-      {subtitle && (
+      <!-- {subtitle && (
         <p class="text-xl text-dark-secondary max-w-4xl mx-auto leading-relaxed">
           {subtitle}
         </p>
-      )}
+      )} -->
     </div>
 
     <!-- Partners Grid -->
-    <div class="flex gap-3 items-center justify-center">
+    <div class="w-full grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
       {partners.map((partner) => (
         <ImageComponent
           img={partner.img}
           alt={partner.alt}
           href={partner.href}
           title={partner.title}
-          containerClass="group max-w-[180px] max-h-[100px] flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300"
+          containerClass="flex items-center justify-center w-full h-full"
           imageClass="w-full h-full object-contain group-hover:grayscale-0 transition-all duration-300"
         />
       ))}

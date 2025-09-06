@@ -21,7 +21,7 @@ const wrapperProps = href
 ---
 
 <Wrapper 
-  class={`${containerClass} ${className}`}
+  class={`${containerClass} ${className} m-0 p-0 hover:scale-105 transform transition-transform duration-300`} 
   {...wrapperProps}
 >
   <Image
@@ -29,7 +29,7 @@ const wrapperProps = href
     alt={alt}
     height={img.height || 100}
     width={img.width || 100}
-    class={`${imageClass} transition-all duration-300 group-hover:scale-105 group-hover:opacity-80`}
+    class={`${imageClass} transition-all duration-300`}
     loading="lazy"
   />
 </Wrapper>

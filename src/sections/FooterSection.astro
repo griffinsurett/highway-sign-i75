@@ -39,7 +39,7 @@ const cpaExamParts = [
 ];
 ---
 
-<footer class={`bg-primary text-light-primary ${className}`}>
+<footer class={`bg-primary text-light-primary border-x-3 border-light-primary ${className}`}>
   <!-- Newsletter & Social Section -->
   <div class="py-12 md:py-16">
     <div class="inner-section mx-auto">
@@ -80,11 +80,9 @@ const cpaExamParts = [
     </div>
   </div>
 
-  <!-- Divider -->
-  <div class="border-t border-white/20"></div>
 
   <!-- Main Footer Content -->
-  <div class="py-12 md:py-16">
+  <div class="py-12 md:py-16 border-y-3 border-light-primary">
     <div class="w-85/100 max-w-7xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
         
@@ -184,18 +182,16 @@ const cpaExamParts = [
   </div>
 
   <!-- Bottom Bar -->
-  <div class="border-t border-white/20 py-6">
-    <div class="w-85/100 max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-light-primary/80 text-sm">
+    <div class="w-85/100 max-w-7xl mx-auto py-5">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-light-primary/80 text-lg">
         <div class="flex items-center gap-2">
           <span>©</span>
           <span>{currentYear}</span>
           <span>{SiteData.legalName}. All Rights Reserved.</span>
         </div>
         <div>
-          <span>Powered By Griffin's Web Services</span>
+          <span>Powered By <a href="https://griffinswebservices.com" class="hover:underline transition-all duration-300">Griffin's Web Services</a></span>
         </div>
       </div>
     </div>
-  </div>
 </footer>

@@ -3,6 +3,7 @@
 import TestimonialCard from "@/components/LoopComponents/TestimonialCard/TestimonialCard.astro";
 import Heading from "@/components/Heading";
 import Button from "@/components/Button/Button";
+import BgImage from "@/assets/i75road.jpg";
 
 // Import placeholder avatars - replace with actual student photos
 import Student1 from "@/assets/students.jpg"; // You'll replace these with actual testimonial photos
@@ -200,7 +201,13 @@ const testimonials = [
 ];
 ---
 
-<section id={id} class={`py-16 md:py-24 bg-light-secondary ${className}`}>
+<section id={id} class={` bg-light-secondary ${className}`}>
+  <div
+    class="relative bg-cover bg-center lg:bg-fixed min-h-[60vh] lg:min-h-[100vh]
+           flex flex-col items-center justify-between space-y-4
+           py-16 md:py-24"
+    style={`background-image: url("${BgImage.src}");`}
+  >
   <div class="w-85/100 max-w-7xl mx-auto">
     
     <!-- Section Header -->
@@ -210,12 +217,12 @@ const testimonials = [
       </Heading> -->
       <Heading 
         tagName="h2" 
-        className="h2 font-bold text-dark-primary"
+        className="h2 font-bold text-light-primary"
       >
         {title}
       </Heading>
       {subtitle && (
-        <p class="h4 text-primary max-w-3xl mx-auto">
+        <p class="h4 text-light-tertiary max-w-3xl mx-auto">
           {subtitle}
         </p>
       )}
@@ -248,9 +255,10 @@ const testimonials = [
    <CTABlock
     primaryButtonVariant="secondary" 
     showSecondaryButton={true}
+    secondaryButtonClass="invert font-bold hover:text-light-primary"
     showQuote={false}
-    signatureClass="order-first w-40 h-auto mx-auto"
+    signatureClass="order-first w-40 h-auto mx-auto invert"
   />
-
+</div>
   </div>
 </section>

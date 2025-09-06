@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Heading from "@/components/Heading";
+import HighwayCard from "@/components/HighwayCard.astro";
 
 const {
   name,
@@ -12,7 +13,7 @@ const {
   class: className = "",
 } = Astro.props;
 ---
-<article class={`rounded-2xl p-6 shadow-xl bg-primary text-white ${className}`}>
+<HighwayCard class={`rounded-2xl p-6 shadow-xl bg-primary text-white ring-3 ring-white ${className}`}>
   <!-- header -->
   <div class="flex items-center gap-3 mb-4">
     {avatar && (
