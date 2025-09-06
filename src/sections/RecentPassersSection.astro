@@ -1,0 +1,60 @@
+---
+// src/sections/RecentPassersSection.astro
+import RecentPassersDisplay from "@/components/RecentPassersDisplay";
+
+const {
+  id = "recent-passers",
+  class: className = "",
+} = Astro.props;
+
+// Sample data - you can move this to a data file or API call
+const recentPassers = [
+  { name: "Sarah Johnson", part: "FAR" },
+  { name: "Michael Chen", part: "AUD" },
+  { name: "Jessica Rodriguez", part: "REG" },
+  { name: "Robert Kim", part: "BEC" },
+  { name: "Amanda Wilson", part: "FAR" },
+  { name: "Carlos Martinez", part: "AUD" },
+  { name: "Emily Zhang", part: "REG" },
+  { name: "Marcus Williams", part: "BEC" },
+  { name: "Jennifer Lee", part: "FAR" },
+  { name: "Kevin Chang", part: "AUD" },
+];
+---
+
+<section 
+  id={id} 
+  class={`w-screen h-full bg-gray-900 border-y-4 ${className}`}
+>
+  <!-- LED-style background pattern -->
+  <div class="absolute inset-0 bg-gray-900 opacity-95"></div>
+  
+  <!-- Subtle dot pattern to mimic LED display -->
+  <div 
+    class="absolute inset-0 opacity-20"
+    style="background-image: radial-gradient(circle, var(--color-accent) 1px, transparent 1px); background-size: 8px 8px;"
+  ></div>
+  
+  <div class="relative h-full flex flex-col justify-center items-center w-full space-y-3 py-3">
+    <!-- Top Line -->
+    <div class="bg-gray-700 text-accent text-sm md:text-base lg:text-lg font-thin tracking-wider uppercase text-center w-full">
+      Hear From Those Who Have Recently Passed
+    </div>
+    
+    <!-- Middle Line - Animated -->
+    <div class="bg-gray-700 text-accent text-lg md:text-xl lg:text-2xl font-thin tracking-wider uppercase text-center w-full">
+      <RecentPassersDisplay 
+        passers={recentPassers}
+        client:visible
+      />
+    </div>
+    
+    <!-- Bottom Line -->
+    <div class="bg-gray-700 text-accent text-sm md:text-base lg:text-lg font-thin tracking-wider uppercase text-center w-full">
+      The Right Teacher Makes All The Difference
+    </div>
+  </div>
+  
+  <!-- Optional: Add some LED-style glow effects -->
+  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-500/5 to-transparent"></div>
+</section>

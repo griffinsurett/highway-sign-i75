@@ -42,8 +42,8 @@ const cpaExamParts = [
 <footer class={`bg-primary text-light-primary ${className}`}>
   <!-- Newsletter & Social Section -->
   <div class="py-12 md:py-16">
-    <div class="w-85/100 max-w-7xl mx-auto">
-      <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
+    <div class="inner-section mx-auto">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-16">
         <!-- Newsletter Signup -->
         <div class="flex-1 max-w-2xl">
           <Heading tagName="h3" className="h3 font-bold text-light-primary mb-6">
@@ -66,13 +66,12 @@ const cpaExamParts = [
         </div>
 
         <!-- Social Media -->
-        <div class="text-center lg:text-right">
-          <Heading tagName="h3" className="h3 font-bold text-light-primary mb-6">
+        <div class="text-center">
+          <Heading tagName="h3" className="h3 font-bold text-left lg:text-center text-light-primary mb-4">
             Follow Us!
           </Heading>
           <SocialLinks
-            containerClass="flex items-center justify-center lg:justify-end space-x-4"
-            linkClass="w-12 h-12 bg-light-primary/20 hover:bg-light-primary/30 rounded-lg flex items-center justify-center transition-colors duration-200"
+            linkClass="w-15 h-15 hover:scale-110 rounded-lg flex items-center justify-center transition-all duration-200"
             iconClass="text-light-primary"
             iconSize="24"
           />
