@@ -2,10 +2,12 @@
 // src/sections/ComparisonSection.astro
 import MemeImage from "@/components/LoopComponents/MemeImage.astro";
 import Heading from "@/components/Heading";
+import StraightArrow from "@/assets/straight-arrow.png";
 
 // You'll need to import your actual images
 import ComplexHighway from "@/assets/CPAExamMeme/wrong-road.jpg"; // complex interchange image
 import SimpleRoad from "@/assets/CPAExamMeme/right-road.jpg";  // straight road image
+import { Image } from "astro:assets";
 
 const {
   id = "comparison",
@@ -42,5 +44,12 @@ const comparisons = [
       ))}
     </div>
 
+    <Image
+      src={StraightArrow}
+      alt="Straight Arrow"
+      class="w-7 h-7 lg:w-11 lg:h-11 absolute left-1/2 -translate-x-1/3 -mt-2 md:-mt-5"
+      width={48}
+      height={48}
+    />
   </div>
 </section>
