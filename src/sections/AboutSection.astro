@@ -1,0 +1,45 @@
+---
+import Heading from "@/components/Heading";
+import CTABlock from "@/components/CTABlock.astro";
+
+// Props (all optional)
+const {
+  id = "about",
+  class: className = "",
+  reversed = false,
+} = Astro.props;
+
+import Video from "/Did-You-Fail-The-CPA-Exam_-Maybe-Its-not-your-Faultseptember.mp4";
+import ArrowHeading from "@/components/ArrowHeading.astro";
+---
+<section
+  id={id}
+  class={`relative py-14 md:py-25 space-y-10 text-light-primary ${className}`}
+>
+  <!-- Video -->
+  <div class="inset-0 inner-section lg:w-4/6 h-full text-center flex flex-col gap-5 text-light-primary">
+    <!-- <Heading tagName="span" className="h3 text-center uppercase">
+      Inside The i75 CPA Review Course
+    </Heading> -->
+  <ArrowHeading 
+  tagName="h2"
+  className="h3 font-bold text-white uppercase tracking-wider bg-primary px-4 py-2 rounded-lg"
+  containerClass="flex items-center justify-center gap-4 mb-6"
+>
+  Inside The i75 CPA Review Course
+</ArrowHeading>
+    <video
+      class="w-full h-full object-cover"
+      src={Video}
+      autoPlay
+      controls
+      loop
+      muted
+    ></video>
+  </div>
+  <div class="inner-section mx-auto max-w-3xl flex flex-col justify-center items-center gap-6">
+    <p class="text-2xl text-center leading-relaxed">
+      Welcome to i75 CPA Review, <span class="font-bold">your clear and direct road to passing the CPA exam.</span> Led by Darius Clark, our course is designed to <span class="font-bold">simplify complex topics</span> and offer focused, practical insights that help you efficiently prepare for success. <span class="font-bold">Whether you've struggled with other courses or are just starting your CPA journey</span>, i75 CPA Review is here to guide you every step of the way.
+    </p>
+     <CTABlock />
+</section>

@@ -1,0 +1,23 @@
+---
+import { SiteData, course } from "@/SiteData"
+import { Image } from "astro:assets"
+import Heading from "@/components/Heading"
+import Logo from "./Logo.astro";
+
+const size = 70;
+---
+<a href="/" class="flex justify-start items-center gap-2">
+ <Logo
+        src={SiteData.Logo}
+        class={"w-15 h-15"}
+        alt={`${SiteData.title} Logo`}
+        width={size}
+        height={size}
+    />
+    <div class="flex flex-col text-left">
+        <Heading tagName="span" className="h4 text-light-primary">
+        {course} Review
+    </Heading>
+    <p class="text-base text-light-secondary tracking-tight">The Right Road</p>
+    </div>
+</a>

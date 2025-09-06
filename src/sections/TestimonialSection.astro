@@ -1,0 +1,256 @@
+---
+// src/sections/TestimonialsSection.astro
+import TestimonialCard from "@/components/LoopComponents/TestimonialCard/TestimonialCard.astro";
+import Heading from "@/components/Heading";
+import Button from "@/components/Button/Button";
+
+// Import placeholder avatars - replace with actual student photos
+import Student1 from "@/assets/students.jpg"; // You'll replace these with actual testimonial photos
+import Student2 from "@/assets/students.jpg";
+import Student3 from "@/assets/students.jpg";
+import CTABlock from "@/components/CTABlock.astro";
+
+const {
+  id = "testimonials",
+  class: className = "",
+  title = "i75ers Have A Much Easier Time Passing The Exam Than Their Counterparts",
+  eyebrow = "Testimonials",
+  subtitle = "Here's What They Said...",
+  ctaText = "See All Success Stories",
+  ctaHref = "/testimonials",
+} = Astro.props;
+
+const testimonials = [
+  {
+    type: "text",
+    name: "Michael Chen",
+    title: "Tax Manager",
+    company: "EY",
+    avatar: Student2,
+    testimonial: "After failing REG twice with other courses, i-75 got me through on my first try. The practice questions are incredible!",
+    rating: 5,
+    size: "normal"
+  },
+  {
+    type: "text",
+    name: "Jessica Rodriguez",
+    title: "Financial Analyst",
+    company: "JPMorgan Chase",
+    avatar: Student3,
+    testimonial: "94% pass rate speaks for itself. Best investment I made for my CPA journey.",
+    rating: 5,
+    size: "small"
+  },
+  {
+    type: "text",
+    name: "Amanda Wilson",
+    title: "Controller",
+    company: "Microsoft",
+    avatar: Student2,
+    testimonial: "The Right Teacher Makes All The Difference - this isn't just a slogan, it's the truth. i-75 delivered when others couldn't.",
+    rating: 5,
+    size: "large"
+  },
+  {
+    type: "text",
+    name: "Robert Kim",
+    title: "Audit Senior",
+    company: "PwC",
+    avatar: Student3,
+    testimonial: "Passed all 4 sections on first try thanks to i-75. The course structure is perfect.",
+    rating: 5,
+    size: "small"
+  },
+  {
+    type: "video",
+    orientation: "landscape",
+    name: "Lisa Thompson",
+    title: "CPA Candidate",
+    avatar: Student1,
+    videoThumbnail: Student1,
+    testimonial: "Finally found a course that explains FAR in a way that makes sense. Thank you Darius!",
+    rating: 5,
+    size: "normal"
+  },  
+  {
+    type: "video",
+    name: "Lisa Thompson",
+    title: "CPA Candidate",
+    avatar: Student1,
+    videoThumbnail: Student1,
+    testimonial: "Finally found a course that explains FAR in a way that makes sense. Thank you Darius!",
+    rating: 5,
+    size: "normal"
+  },
+  {
+    type: "text",
+    name: "Carlos Martinez",
+    title: "Senior Associate",
+    company: "Grant Thornton",
+    avatar: Student2,
+    testimonial: "i-75's approach to AUD was game-changing. Went from constant confusion to complete clarity.",
+    rating: 5,
+    size: "normal"
+  },
+  {
+    type: "text",
+    name: "Emily Zhang",
+    title: "Tax Associate",
+    company: "RSM",
+    avatar: Student3,
+    testimonial: "Best CPA review course, period. Worth every penny and then some.",
+    rating: 5,
+    size: "small"
+  },
+  {
+    type: "text",
+    name: "Marcus Williams",
+    title: "Senior Tax Analyst",
+    company: "BDO",
+    avatar: Student1,
+    testimonial: "Darius breaks down complex concepts into digestible pieces. Finally understood governmental accounting!",
+    rating: 5,
+    size: "normal"
+  },
+  {
+    type: "text",
+    name: "Jennifer Lee",
+    title: "Staff Auditor",
+    company: "Baker Tilly",
+    avatar: Student2,
+    testimonial: "The homework assignments were exactly what I needed to practice. Felt confident walking into the exam.",
+    rating: 5,
+    size: "small"
+  },
+    {
+    type: "video",
+    orientation: "landscape",
+    name: "Sarah Johnson",
+    title: "CPA, Senior Auditor",
+    company: "Deloitte",
+    avatar: Student1,
+    videoThumbnail: Student1,
+    testimonial: "i-75 made the difference between failing and passing. Darius explains everything so clearly!",
+    rating: 5,
+    size: "large"
+  },
+  {
+    type: "text",
+    name: "Rachel Green",
+    title: "Financial Reporting Manager",
+    company: "Tesla",
+    avatar: Student1,
+    testimonial: "The way Darius explains consolidations is brilliant. Went from my worst topic to one I actually enjoyed.",
+    rating: 5,
+    size: "large"
+  },
+  {
+    type: "text",
+    name: "Kevin Chang",
+    title: "CPA, Tax Senior",
+    company: "Crowe LLP",
+    avatar: Student2,
+    testimonial: "Tried 3 different review courses before finding i-75. This one actually works.",
+    rating: 5,
+    size: "small"
+  },
+  {
+    type: "text",
+    name: "Samantha Davis",
+    title: "Internal Auditor",
+    company: "Wells Fargo",
+    avatar: Student3,
+    testimonial: "The lectures are engaging and the practice questions mirror the actual exam perfectly.",
+    rating: 5,
+    size: "normal"
+  },
+     {
+    type: "video",
+    orientation: "square",
+    name: "Sarah Johnson",
+    title: "CPA, Senior Auditor",
+    company: "Deloitte",
+    avatar: Student1,
+    videoThumbnail: Student1,
+    testimonial: "i-75 made the difference between failing and passing. Darius explains everything so clearly!",
+    rating: 5,
+    size: "large"
+  },
+  {
+    type: "text",
+    name: "Jordan Miller",
+    title: "Accounting Manager",
+    company: "Apple",
+    avatar: Student1,
+    testimonial: "i-75 turned my CPA nightmare into a success story. Thank you for making this possible!",
+    rating: 5,
+    size: "normal"
+  },
+    {
+    type: "video",
+    name: "Taylor Martinez",
+    title: "CPA, Financial Analyst",
+    company: "Goldman Sachs",
+    avatar: Student3,
+    videoThumbnail: Student3,
+    testimonial: "After 8 months of struggling with FAR, i-75 got me passing in just 6 weeks. Darius is incredible!",
+    rating: 5,
+    size: "normal"
+  }
+];
+---
+
+<section id={id} class={`py-16 md:py-24 bg-light-secondary ${className}`}>
+  <div class="w-85/100 max-w-7xl mx-auto">
+    
+    <!-- Section Header -->
+    <div class="text-center space-y-4 mb-10 flex flex-col gap-2">
+      <Heading tagName="span" className="h4 text-primary uppercase">
+        {eyebrow}
+      </Heading>
+      <Heading 
+        tagName="h2" 
+        className="h2 font-bold text-dark-primary"
+      >
+        {title}
+      </Heading>
+      {subtitle && (
+        <p class="h4 text-primary max-w-3xl mx-auto">
+          {subtitle}
+        </p>
+      )}
+    </div>
+
+    <!-- Testimonials Masonry Grid -->
+    <!-- Replace the current grid container -->
+<div class="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 [column-fill:_balance]">
+  {testimonials.map((t) => (
+    <div class="mb-6 break-inside-avoid inline-block w-full">
+      <TestimonialCard
+        type={t.type}
+        name={t.name}
+        title={t.title}
+        company={t.company}
+        avatar={t.avatar}
+        testimonial={t.testimonial}
+        videoThumbnail={t.videoThumbnail}
+        rating={t.rating}
+        size={t.size}
+        orientation={t.orientation}   
+        videoUrl={t.videoUrl}        
+      />
+    </div>
+  ))}
+</div>
+
+    <!-- Call to Action -->
+        <!-- Call to Action -->
+   <CTABlock
+    primaryButtonVariant="secondary" 
+    showSecondaryButton={true}
+    showQuote={false}
+    signatureClass="order-first w-40 h-auto mx-auto"
+  />
+
+  </div>
+</section>

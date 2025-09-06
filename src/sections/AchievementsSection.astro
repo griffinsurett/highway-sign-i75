@@ -1,0 +1,100 @@
+---
+// src/sections/AchievementsSection.astro
+import StatCard from "@/components/StatCard.astro";
+import Heading from "@/components/Heading";
+import Button from "@/components/Button/Button";
+
+const {
+  id = "achievements",
+  class: className = "",
+  title = "Why Choose i-75 CPA Review?",
+  subtitle = "Join thousands of successful CPA candidates who trust our proven methodology",
+  ctaText = "Start Your Success Story",
+  ctaHref = "/get-started",
+} = Astro.props;
+
+const achievements = [
+  {
+    stat: "10k+",
+    label: "Relevant Multiple Choice Questions",
+    description: "Comprehensive question bank covering all exam topics",
+  },
+  {
+    stat: "#1",
+    label: "Rated Videos",
+    description: "Top-rated instructional content by students nationwide",
+  },
+  {
+    stat: "94%",
+    label: "Passing Rate",
+    description: "Our students consistently outperform the national average",
+  },
+];
+---
+
+<section
+  id={id}
+  class={`relative py-20 md:py-32 overflow-hidden ${className}`}
+>
+  <!-- Background Pattern/Overlay -->
+  <div
+    class="absolute"
+  >
+  </div>
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full"></div>
+    <div class="absolute bottom-20 right-20 w-24 h-24 bg-white/50 rounded-full">
+    </div>
+    <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-white/30 rounded-full">
+    </div>
+  </div>
+
+  <div class="relative w-85/100 max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center space-y-6 mb-16 md:mb-20">
+      <Heading tagName="h2" className="h2 font-bold text-white drop-shadow-lg">
+        {title}
+      </Heading>
+      {
+        subtitle && (
+          <p class="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
+            {subtitle}
+          </p>
+        )
+      }
+    </div>
+
+    <!-- Achievement Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-16 md:mb-20">
+      {
+        achievements.map((achievement, index) => (
+          <StatCard
+            stat={achievement.stat}
+            label={achievement.label}
+            description={achievement.description}
+            class={`transform hover:scale-110 transition-all duration-500 hover:rotate-1 ${
+              index % 2 === 0 ? "md:translate-y-4" : "md:-translate-y-4"
+            }`}
+          />
+        ))
+      }
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center">
+      <div
+        class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 space-y-8"
+      >
+        <p
+          class="text-xl md:text-2xl text-white italic max-w-3xl mx-auto leading-relaxed font-medium"
+        >
+          "These numbers don't lie. When you choose i-75, you're choosing a
+          proven path to CPA success."
+        </p>
+        <Button variant="borderWhite" href={ctaHref}>
+          {ctaText}
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>

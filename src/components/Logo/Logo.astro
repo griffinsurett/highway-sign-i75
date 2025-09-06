@@ -1,0 +1,20 @@
+---
+// src/components/Logo/Logo.astro
+import { SiteData } from "@/SiteData";
+import { Image } from "astro:assets";
+
+const {
+  size = 70,
+  class: className = "w-15 h-15",
+  alt = SiteData.title,
+  ...props
+} = Astro.props;
+---
+<Image
+  src={SiteData.Logo}
+  class={className}
+  alt={alt}
+  width={size}
+  height={size}
+  {...props}
+/>

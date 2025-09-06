@@ -1,0 +1,15 @@
+---
+import TextCard from "./TextCard.astro";
+import VideoCard from "./VideoCard.astro";
+
+// keep the same external API
+const {
+  type = "text",
+  class: className = "",
+  ...rest
+} = Astro.props;
+---
+{type === "video"
+  ? <VideoCard class={className} {...rest} />
+  : <TextCard  class={className} {...rest} />
+}

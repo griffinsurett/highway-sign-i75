@@ -1,0 +1,63 @@
+---
+import { Image } from "astro:assets";
+
+// Props
+const {
+  title = "Part",
+  href,                          // optional: makes the whole card a link
+  img,                           // optional: Image import (astro:assets) or string URL
+  class: className = "",
+  overlayClass = "bg-emerald-900/70", // teal-ish overlay like your mock
+  titleClass = "text-light-primary font-extrabold tracking-wide uppercase text-3xl md:text-4xl",
+  // accessibility
+  ariaLabel = `Open ${title}`,
+  color,
+} = Astro.props;
+
+// If no image passed, you can fallback to your hero background:
+import DefaultBg from "@/assets/i75road.jpg";
+import Heading from "@/components/Heading";
+import ArrowHeading from "../ArrowHeading.astro";
+
+const resolvedImg = img ?? DefaultBg;
+const Wrapper = href ? "a" : "article";
+const wrapperProps = href
+  ? { href, "aria-label": ariaLabel, rel: href?.startsWith("http") ? "noopener noreferrer" : undefined, target: href?.startsWith("http") ? "_blank" : undefined }
+  : {};
+---
+<Wrapper
+  class={`group relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-dark-primary/10
+          transition-transform duration-300 focus-visible:ring-primary bg-primary/50
+          aspect-[16/9] cursor-pointer ${className}`}
+  {...wrapperProps}
+>
+  <!-- Background image -->
+  <Image
+    src={resolvedImg}
+    alt=""
+    widths={[640, 768, 1024, 1280]}
+    sizes="(min-width: 1280px) 33vw, (min-width: 768px) 45vw, 100vw"
+    class="absolute inset-0 w-full h-full object-cover"
+    loading="lazy"
+  />
+
+  <!-- Base overlay (teal) fades OUT on hover -->
+  <div
+    class={`absolute inset-0 ${overlayClass} transition-all duration-600 group-hover:opacity-0`}
+  />
+
+  <!-- Hover overlay (your color) fades IN -->
+  {color && (
+    <div
+      class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-600"
+      style={{ backgroundColor: color }}
+    />
+  )}
+
+  <!-- Title -->
+  <div class="relative h-full w-full flex flex-col justify-center items-center p-6">
+    <Heading tagName="span" className={`text-xl md:text-2xl lg:text-3xl xl:text-4xl text-center drop-shadow ${titleClass}`}>
+      {title}
+    </Heading>
+  </div>
+</Wrapper>

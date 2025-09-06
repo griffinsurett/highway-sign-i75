@@ -1,0 +1,99 @@
+---
+import { Image } from "astro:assets";
+import Heading from "@/components/Heading";
+
+/** @typedef {"portrait" | "landscape" | "square"} Orientation */
+
+const {
+  name,
+  title,
+  avatar,
+  videoThumbnail,
+  videoUrl,                  // optional link to YouTube/Vimeo/etc
+  orientation = "portrait",  /** @type {Orientation} */
+  class: className = "",
+} = Astro.props as {
+  name: string;
+  title: string;
+  avatar?: any;
+  videoThumbnail?: any;
+  videoUrl?: string;
+  orientation?: "portrait" | "landscape" | "square";
+  class?: string;
+};
+
+const aspectClass =
+  orientation === "landscape"
+    ? "aspect-[16/9]"
+    : orientation === "square"
+    ? "aspect-square"
+    : "aspect-[9/16]"; // portrait (default)
+---
+
+<article class={`rounded-2xl overflow-hidden shadow-xl ${className}`}>
+  {videoUrl ? (
+    <a
+      href={videoUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class={`relative block ${aspectClass} group`}
+      aria-label={`Play testimonial video from ${name}`}
+    >
+      {videoThumbnail && (
+        <Image
+          src={videoThumbnail}
+          alt={`${name} video testimonial`}
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          loading="lazy"
+        />
+      )}
+
+      <!-- Play overlay -->
+      <div class="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/10 transition-colors">
+        <div class="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
+          <svg class="w-6 h-6 text-gray-800 ml-1" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M8 5v10l8-5-8-5z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Bottom info -->
+      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4">
+        <div class="flex items-center space-x-3 text-white">
+          {avatar && <Image src={avatar} alt={name} class="w-10 h-10 rounded-full object-cover" loading="lazy" />}
+          <div class="flex-1">
+            <Heading tagName="h4" className="font-bold text-base text-white">{name}</Heading>
+            <p class="text-sm text-white/90">{title}</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  ) : (
+    <div class={`relative ${aspectClass} group`}>
+      {videoThumbnail && (
+        <Image
+          src={videoThumbnail}
+          alt={`${name} video testimonial`}
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          loading="lazy"
+        />
+      )}
+      <div class="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/10 transition-colors">
+        <div class="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
+          <svg class="w-6 h-6 text-gray-800 ml-1" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M8 5v10l8-5-8-5z"/>
+          </svg>
+        </div>
+      </div>
+      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4">
+        <div class="flex items-center space-x-3 text-white">
+          {avatar && <Image src={avatar} alt={name} class="w-10 h-10 rounded-full object-cover" loading="lazy" />}
+          <div class="flex-1">
+            <Heading tagName="h4" className="font-bold text-base text-white">{name}</Heading>
+            <p class="text-sm text-white/90">{title}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )}
+</article>

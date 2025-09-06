@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets"
+import Logo from "@/components/Logo/Logo.astro"
+import CircleArrow from "@/assets/circle-arrow.png"
+import StraightArrow from "@/assets/straight-arrow.png";
+---
+<header class="bg-primary w-screen shadow-2xl">
+       <div class="header-top p-3 flex justify-center items-center rounded-xl border-3 border-light-primary">
+ <Image
+        src={StraightArrow}
+        alt={"Highway arrow"}
+        class={"w-6 h-6"}
+        width={60}
+        height={60}
+    />
+</div>
+   <div class="header-middle h-23 flex items-center justify-center rounded-xl border-3 border-light-primary">
+    <div class="w-95/100 mx-auto flex justify-between items-center">
+        <a href="/">
+       <Logo />
+        </a>
+   <Image
+        src={CircleArrow}
+        alt={"Highway arrow"}
+        class={"w-9 h-10"}
+        width={60}
+        height={60}
+    />
+    </div>
+   </div>
+</header>

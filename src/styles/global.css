@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Overpass";
+  src:
+       url("/fonts/Overpass-VariableFont_wght.ttf") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-dark-primary: var(--color-gray-900);
+  --color-dark-secondary: var(--color-gray-700);
+  --color-light-primary: var(--color-gray-100);
+  --color-light-secondary: #f8f9fa;
+  --color-light-tertiary: #e6f7f5;
+  --color-primary: #278476;
+  --color-accent: #FFA500;
+
+  /* parts */
+  --color-audit: #a400db;
+  --color-far: #128900;
+  --color-reg: #dd0000;
+  --color-isc: #25a5ea;
+  --color-tcp: #ef8f00;
+  --color-bar: #ff00e9;
+}
+
+@layer base {
+  body { 
+    @apply bg-primary overflow-x-hidden;
+    font-family: "Overpass", sans-serif;
+  }
+}
+
+@layer components {
+  .h1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[0.95];
+  }
+  .h2 {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[0.95];
+  }
+  .h3 {
+    @apply text-3xl sm:text-4xl font-extrabold tracking-tight leading-[0.95];
+  }
+  .h4 {
+    @apply text-xl sm:text-2xl md:text-3xl font-normal tracking-wide leading-[0.95];
+  }
+  .h5 {
+    @apply text-xl md:text-2xl tracking-tight leading-[0.95];
+  }
+  .h6 {
+    @apply text-base sm:text-lg tracking-tight leading-[0.95];
+  }
+  /* .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    font-family: "Overpass", sans-serif;
+  } */
+}
+
+@layer components {
+  .inner-section {
+    @apply w-85/100 mx-auto;
+  }
+}

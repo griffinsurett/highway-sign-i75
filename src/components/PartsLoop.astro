@@ -1,0 +1,23 @@
+---
+import PartCard from "@/components/LoopComponents/PartCard.astro";
+import RoadBg from "@/assets/i75road.jpg";
+import ArrowHeading from "./ArrowHeading.astro";
+
+const {
+  class: className = ""
+} = Astro.props;
+
+const parts = [
+  { title: "FAR",   img: RoadBg, color: "var(--color-far)" },
+  { title: "Audit", img: RoadBg, color: "var(--color-audit)" },
+  { title: "REG",   img: RoadBg, color: "var(--color-reg)" },
+  { title: "ISC",   img: RoadBg, color: "var(--color-isc)" },
+  { title: "TCP",   img: RoadBg, color: "var(--color-tcp)" },
+  { title: "BAR",   img: RoadBg, color: "var(--color-bar)" },
+];
+---
+<div class={`grid grid-cols-3 gap-2 lg:gap-6 inner-section ${className}`}>
+  {parts.map((p) => (
+    <PartCard {...p} />
+  ))}
+</div>

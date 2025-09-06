@@ -1,0 +1,37 @@
+---
+// src/components/ArrowHeading.astro
+import { Image } from "astro:assets";
+import Heading from "./Heading";
+import StraightArrow from "@/assets/straight-arrow-down.png";
+
+const {
+  tagName = "h2",
+  className = "h4 font-bold text-light-primary uppercase tracking-wide",
+  containerClass = "flex items-center justify-center gap-3 mb-6",
+  arrowClass = "w-16 h-12 -mb-20",
+  arrowAlt = "Arrow",
+  ...props
+} = Astro.props;
+---
+
+<div class={containerClass}>
+  <Image 
+    src={StraightArrow} 
+    alt={arrowAlt} 
+    class={arrowClass}
+  />
+  
+  <Heading 
+    tagName={tagName} 
+    className={className}
+    {...props}
+  >
+    <slot />
+  </Heading>
+  
+  <Image 
+    src={StraightArrow} 
+    alt={arrowAlt} 
+    class={arrowClass}
+  />
+</div>

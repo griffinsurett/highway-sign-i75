@@ -1,0 +1,28 @@
+---
+/**
+ * FloatingCard — positional wrapper that composes HighwayCard.
+ * Only controls POSITIONING; all style goes to HighwayCard via `class`.
+ */
+
+import HighwayCard from "@/components/HighwayCard.astro";
+
+const {
+  // Positioning for the floating wrapper (absolute to nearest relative parent)
+  position = "-bottom-6 -left-6",
+  wrapperClass = "",
+
+  // Forwarded visual styling for HighwayCard
+  class: cardClass,
+  ariaLabel = undefined,
+} = Astro.props;
+
+const finalWrapperClass = ["absolute z-10", position, "backdrop-blur-sm", wrapperClass]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<div class={finalWrapperClass}>
+  <HighwayCard class={cardClass} ariaLabel={ariaLabel}>
+    <slot />
+  </HighwayCard>
+</div>

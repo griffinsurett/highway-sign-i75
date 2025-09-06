@@ -1,0 +1,30 @@
+---
+// src/components/ContentWrapper.astro
+import { SiteData } from "@/SiteData";
+import { Image } from "astro:assets";
+
+const {
+  class: className = "",
+} = Astro.props;
+---
+
+<div class={`relative ${className}`}>
+  <!-- Single Fixed Logo Background -->
+  <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+    <div class="absolute inset-0 flex items-center justify-center">
+      <Image
+        src={SiteData.Logo}
+        alt=""
+        class="w-96 md:w-[500px] lg:w-[600px] opacity-5 select-none"
+        width={600}
+        height={600}
+        loading="eager"
+      />
+    </div>
+  </div>
+  
+  <!-- Content Layer -->
+  <div class="relative z-10">
+    <slot />
+  </div>
+</div>

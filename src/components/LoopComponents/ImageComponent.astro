@@ -1,0 +1,35 @@
+---
+// src/components/LoopComponents/ImageComponent.astro
+import { Image } from "astro:assets";
+
+const {
+  img,
+  alt,
+  href,
+  title,
+  class: className = "",
+  imageClass = "w-full h-auto object-contain",
+  containerClass = "group",
+  target = "_blank",
+  rel = "noopener noreferrer",
+} = Astro.props;
+
+const Wrapper = href ? "a" : "div";
+const wrapperProps = href 
+  ? { href, target, rel, title } 
+  : { title };
+---
+
+<Wrapper 
+  class={`${containerClass} ${className}`}
+  {...wrapperProps}
+>
+  <Image
+    src={img}
+    alt={alt}
+    height={img.height || 100}
+    width={img.width || 100}
+    class={`${imageClass} transition-all duration-300 group-hover:scale-105 group-hover:opacity-80`}
+    loading="lazy"
+  />
+</Wrapper>

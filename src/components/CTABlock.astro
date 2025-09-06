@@ -1,0 +1,79 @@
+---
+// src/components/CTABlock.astro
+import Button from "@/components/Button/Button";
+import { Image } from "astro:assets";
+import Signature from "@/assets/signature.png";
+import { SiteData } from "@/SiteData";
+
+const {
+  // Button props
+  showPrimaryButton = true,
+  primaryButtonText = SiteData.mainCTAText,
+  primaryButtonHref = SiteData.mainCTAurl,
+  primaryButtonVariant = "borderWhite",
+  primaryButtonClass = "h5 w-full sm:w-auto",
+
+  // Secondary button props
+  showSecondaryButton = false,
+  secondaryButtonText = "Hear From Those Who Passed with i75...",
+  secondaryButtonHref = "#",
+  secondaryButtonVariant = "underline",
+  secondaryButtonClass = "w-full font-bold sm:w-auto uppercase",
+
+  // Quote props
+  quote = '"The Right Teacher Makes All The Difference."',
+  quoteClass = "text-center text-xl lg:text-2xl",
+  showQuote = true,
+  showSignature = true,
+  signatureClass = "w-40 h-auto mx-auto",
+
+  // Layout props
+  containerClass = "flex flex-col justify-center items-center gap-3",
+  
+  // Spacing
+  gap = "gap-3",
+} = Astro.props;
+---
+
+<div class={`${containerClass} ${gap}`}>
+  <!-- Primary Button -->
+  {showPrimaryButton && (
+    <Button 
+      variant={primaryButtonVariant} 
+      href={primaryButtonHref} 
+      className={primaryButtonClass}
+    >
+      {primaryButtonText}
+    </Button>
+  )}
+  
+  <!-- Secondary Button -->
+  {showSecondaryButton && (
+    <Button 
+      variant={secondaryButtonVariant} 
+      href={secondaryButtonHref} 
+      className={secondaryButtonClass}
+    >
+      {secondaryButtonText}
+    </Button>
+  )}
+  
+  <!-- Quote -->
+  {showQuote && quote && (
+    <p class={quoteClass}>
+      {quote}
+    </p>
+  )}
+  
+  <!-- Signature -->
+  {showSignature && Signature && (
+    <Image
+      src={Signature}
+      alt={"Darius Clark Signature"}
+      class={signatureClass}
+    />
+  )}
+  
+  <!-- Custom content slot -->
+  <slot />
+</div>

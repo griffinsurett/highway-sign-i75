@@ -1,0 +1,193 @@
+---
+// OldAboutSection.astro
+import Button from "@/components/Button/Button";
+import Heading from "@/components/Heading";
+import Logo from "@/components/Logo/Logo.astro";
+import SocialLinks from "@/components/SocialLinks.astro";
+import { SiteData } from "@/SiteData";
+import { Image } from "astro:assets";
+import Students from "@/assets/students.jpg";
+import FloatingCard from "@/components/FloatingCard.astro";
+import StraightArrow from "@/assets/straight-arrow.png";
+import Counter from "@/components/Counter";
+
+// Props
+const {
+  id = "about",
+  class: className = "",
+  eyebrow = "CPA Review Course",
+  mainMessage = {
+    before: "The Road",
+    beforeClass: "",
+    text: " To CPA",
+    className: "text-light-primary",
+    after: " Begins Today.",
+    afterClass: "",
+  },
+  instructorName = "Darius Clark",
+  instructorTitle = "CPA REVIEW INSTRUCTOR",
+  ctaText = 'GET ON THE "RIGHT ROAD" TO CPA!',
+  ctaHref = "/about",
+
+  // Right side content
+  rightDescription = "Welcome to i75 CPA Review, your clear and direct road to passing the CPA exam. Led by Darius Clark, our course is designed to simplify complex topics and offer focused, practical insights that help you efficiently prepare for success. Whether you've struggled with other courses or are just starting your CPA journey, i75 CPA Review is here to guide you every step of the way.",
+  rightButtonText = "View Success Stories",
+  rightButtonHref = "/testimonials",
+
+  // Flip columns on large screens
+  reversed = false,
+} = Astro.props;
+
+const textOrder = reversed ? "order-2 lg:order-1" : "order-1";
+const mediaOrder = reversed ? "order-1 lg:order-2" : "order-2";
+const size = 60;
+import Video from "/Did-You-Fail-The-CPA-Exam_-Maybe-Its-not-your-Faultseptember.mp4";
+---
+
+<section
+  id={id}
+  class={`relative py-14 md:py-20 space-y-15 bg-light-primary ${className}`}
+>
+  <div class="inner-section">
+    <div class="flex flex-col-reverse lg:flex-row items-start gap-10 lg:gap-16">
+      <!-- Text Content -->
+      <div
+        class={`space-y-8 lg:w-1/2 py-6 lg:py-0 lg:sticky lg:top-0 ${textOrder}`}
+      >
+        <!-- Main Message -->
+        <div class="space-y-2">
+          <div class="flex items-center gap-3">
+            <Logo
+              src={SiteData.Logo}
+              class={"w-10 h-10"}
+              width={size}
+              height={size}
+            />
+            <p class="uppercase text-primary h4">
+              {eyebrow}
+            </p>
+          </div>
+          <Heading
+            tagName="h2"
+            className={`${mainMessage.className} h2 font-bold tracking-normal leading-tightest`}
+            before={mainMessage.before}
+            beforeClass="text-dark-primary"
+            after={mainMessage.after}
+            afterClass="text-dark-primary"
+            text={mainMessage.text}
+          />
+        </div>
+        <p class="italic text-2xl">
+          "The Right Teacher Makes All The Difference."
+        </p>
+        <!-- Instructor Info -->
+        <div class="border-l-4 border-primary pl-6 space-y-2">
+          <Heading tagName="h3" className="h3 font-bold text-primary">
+            {instructorName}
+          </Heading>
+          <p
+            class="text-dark-secondary font-semibold tracking-wide h6 uppercase"
+          >
+            {instructorTitle}
+          </p>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="">
+          <Button
+            variant="secondary"
+            href={ctaHref}
+            className="h5 w-full sm:w-auto"
+          >
+            {ctaText}
+          </Button>
+        </div>
+
+        <!-- Social Links -->
+        <div class="pt-2">
+          <SocialLinks
+            containerClass="flex items-center space-x-4"
+            linkClass="w-12 h-12 bg-primary hover:bg-primary/80 rounded-lg flex items-center justify-center transition-colors duration-200"
+            iconClass="text-light-primary"
+            iconSize="27"
+          />
+        </div>
+      </div>
+
+      <!-- Right Container -->
+      <div class={`w-full lg:w-1/2 space-y-15 ${mediaOrder}`}>
+        <!-- Description and Button Container -->
+        <div class="space-y-6 order-2">
+          <p class="text-lg text-dark-secondary leading-relaxed">
+            {rightDescription}
+          </p>
+
+          <div class="">
+            <Button
+              variant="borderPrimary"
+              href={rightButtonHref}
+              className="h5 w-full sm:w-auto"
+            >
+              {rightButtonText}
+            </Button>
+          </div>
+        </div>
+
+        <!-- Image Container with Floating Cards -->
+        <div class="relative order-1">
+          <div
+            class="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/10"
+          >
+            <Image
+              src={Students}
+              alt="Students studying in library"
+              class="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Highway Floating Card -->
+          <FloatingCard
+            position="-bottom-6 -left-6"
+            exit
+            ariaLabel="Rated videos sign"
+          >
+            <div class="flex flex-col lg:flex-row items-center gap-2 mb-2">
+              <Image
+                src={StraightArrow}
+                alt="Right pointed arrow"
+                class="w-7 h-6"
+                loading="lazy"
+              />
+              <p class="text-lg font-bold text-light-primary">
+                #<Counter start={0} end={1} duration={300} client:visible />
+                Rated Videos
+              </p>
+            </div>
+            <p class="text-xs text-light-primary/90">
+              All Narrated By Darius Clark!
+            </p>
+          </FloatingCard>
+
+          <!-- Stats Floating Card -->
+          <FloatingCard position="-top-6 -right-6">
+            <div class="text-center">
+              <div
+                class="text-2xl font-bold text-light-primary flex items-center justify-center gap-1"
+              >
+                <Image
+                  src={StraightArrow}
+                  alt="Right pointed arrow"
+                  class="w-6 h-5"
+                  loading="lazy"
+                />
+                <Counter start={0} end={10} duration={2000} client:visible />k+
+              </div>
+              <div class="text-xs text-light-primary">Students helped</div>
+            </div>
+          </FloatingCard>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

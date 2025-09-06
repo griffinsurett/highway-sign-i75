@@ -1,0 +1,47 @@
+---
+// src/sections/ComparisonSection.astro
+import MemeImage from "@/components/LoopComponents/MemeImage.astro";
+import Heading from "@/components/Heading";
+
+// You'll need to import your actual images
+import ComplexHighway from "@/assets/CPAExamMeme/wrong-road.jpg"; // complex interchange image
+import SimpleRoad from "@/assets/CPAExamMeme/right-road.jpg";  // straight road image
+
+const {
+  id = "comparison",
+  class: className = "",
+  title = "The Difference is Clear",
+  subtitle = "Choose the right path to CPA success"
+} = Astro.props;
+
+const comparisons = [
+  {
+    img: ComplexHighway, // Replace with your complex highway interchange image
+    label: "THE CPA EXAM",
+    alt: "Complex highway interchange representing the difficulty of CPA exam"
+  },
+  {
+    img: SimpleRoad, // Replace with your I-75 straight road image  
+    label: "THE CPA EXAM WITH I-75",
+    alt: "Simple straight road with I-75 sign representing the straightforward path with our course"
+  }
+];
+---
+
+<section id={id} class={`py-8 md:py-16 ${className}`}>
+  <div >
+
+    <!-- Comparison Images -->
+    <div class="flex justify-center inner-section items-start gap-4 p-0">
+      {comparisons.map((comparison) => (
+        <MemeImage
+          img={comparison.img}
+          label={comparison.label}
+          alt={comparison.alt}
+          class="w-full"
+        />
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,97 @@
+---
+// src/sections/FeaturesSection.astro
+import HighwayCard from "@/components/HighwayCard.astro";
+import Heading from "@/components/Heading";
+import Button from "@/components/Button/Button";
+import CTABlock from "@/components/CTABlock.astro";
+import { SiteData } from "@/SiteData";
+import { Icon } from "astro-icon/components";
+import ArrowHeading from "@/components/ArrowHeading.astro";
+
+const {
+  id = "features",
+  class: className = "",
+  title = "WHAT'S INCLUDED IN YOUR i-75 COURSE",
+  ctaText = "GET FULL ACCESS NOW",
+  ctaHref = "/enroll",
+} = Astro.props;
+
+const courseFeatures = [
+  {
+    title: "Multiple Choice Tests",
+    description: "A Multiple Choice Test at the end of every video (or two) and a Cumulative Multiple Choice Test at the end of every chapter",
+    icon: "fa6-solid:envelope",
+  },
+  {
+    title: "Premium Videos",
+    description: "i-75 videos simplify learning, helping you really get the concepts without having to memorize them. Breaking down tough topics to make them easy to understand.",
+    icon: "fa6-solid:video",
+  },
+  {
+    title: "Instructor-Led Simulations",
+    description: "All i-75 Simulations are Instructor Narrated Videos for Maximum learning purposes",
+    icon: "fa6-solid:video",
+  },
+  {
+    title: "Final Review",
+    description: "The Final Review chapter includes narrated simulation videos and randomized testlets to enhance your understanding, and focus on areas needing improvement.",
+    icon: "fa6-solid:video",
+  },
+  {
+    title: "Amazon E-book",
+    description: "The Amazon E-book Contains 75 \"must know\" questions for your exam",
+    icon: "fa6-solid:video",
+  }
+];
+---
+
+<section id={id} class={`py-16 md:py-24${className}`}>
+  <div class="w-85/100 max-w-7xl mx-auto">
+    
+    <!-- Section Header -->
+    <div class="text-center space-y-4 mb-12 md:mb-16">
+          <ArrowHeading 
+  tagName="h2"
+  className="h3 font-bold text-light-primary tracking-wide"
+  containerClass="flex items-center justify-center mb-6"
+>
+        {title}
+</ArrowHeading>
+    </div>
+
+    <!-- Features Container -->
+    <div class="mb-12 md:mb-16">
+      <HighwayCard class="bg-accent ring-3 ring-dark-primary px-8 py-6 rounded-b-4xl">
+        <!-- Features Grid Inside Single Container -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-8 lg:gap-12">
+          {courseFeatures.map((feature) => (
+            <div class="text-center group">
+              <div class="w-auto h-auto flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
+                <Icon name={feature.icon} size={30} class={"w-6 h-6 lg:w-12 lg:h-12"} />
+              </div>
+              
+              <Heading 
+                tagName="h3" 
+                className="h6 uppercase mb-3 font-bold text-dark-primary"
+              >
+                {feature.title}
+              </Heading>
+              
+              <p class="text-sm text-dark-primary leading-relaxed">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </HighwayCard>
+    </div>
+
+    <!-- Call to Action -->
+   <CTABlock 
+    showSecondaryButton={true}
+    showQuote={false}
+    signatureClass="order-first w-40 h-auto mx-auto"
+  />
+
+  </div>
+</section>
