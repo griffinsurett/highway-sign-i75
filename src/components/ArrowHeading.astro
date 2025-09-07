@@ -3,6 +3,7 @@
 import { Image } from "astro:assets";
 import Heading from "./Heading";
 import StraightArrow from "@/assets/straight-arrow-down.png";
+import StraightArrowUp from "@/assets/straight-arrow.png";
 
 const {
   tagName = "h2",
@@ -10,28 +11,53 @@ const {
   containerClass = "flex items-center justify-center gap-3 mb-6",
   arrowClass = "w-16 h-12 -mb-18",
   arrowAlt = "Arrow",
+  variant = "primary",
   ...props
 } = Astro.props;
+
+// Different layouts based on variant
+const isPrimary = variant === "primary";
+const isSecondary = variant === "secondary";
 ---
 
-<div class={containerClass}>
-  <Image 
-    src={StraightArrow} 
-    alt={arrowAlt} 
-    class={arrowClass}
-  />
-  
-  <Heading 
-    tagName={tagName} 
-    className={className}
-    {...props}
-  >
-    <slot />
-  </Heading>
-  
-  <Image 
-    src={StraightArrow} 
-    alt={arrowAlt} 
-    class={arrowClass}
-  />
-</div>
+{isPrimary && (
+  <div class={containerClass}>
+    <Image 
+      src={StraightArrow} 
+      alt={arrowAlt} 
+      class={arrowClass}
+    />
+    
+    <Heading 
+      tagName={tagName} 
+      className={className}
+      {...props}
+    >
+      <slot />
+    </Heading>
+    
+    <Image 
+      src={StraightArrow} 
+      alt={arrowAlt} 
+      class={arrowClass}
+    />
+  </div>
+)}
+
+{isSecondary && (
+  <div class="flex flex-col items-center justify-center mb-6">
+    <Heading 
+      tagName={tagName} 
+      className={className}
+      {...props}
+    >
+      <slot />
+    </Heading>
+    
+    <Image 
+      src={StraightArrowUp} 
+      alt={arrowAlt} 
+      class="w-14 h-12 mt-4 transform rotate-90"
+    />
+  </div>
+)}

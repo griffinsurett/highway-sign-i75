@@ -3,12 +3,13 @@
 import ImageComponent from "@/components/LoopComponents/ImageComponent.astro";
 import Heading from "@/components/Heading";
 
-import CPAExamClub from "@/assets/partners/cpaexamclub.jpg"
+import CPAExamClub from "@/assets/partners/cpaexamclub.jpg";
 import CPAExamBuzz from "@/assets/partners/cpaexambuzz.jpg";
 import iPassCPA from "@/assets/partners/ipasscpa.jpg";
 import AndrewKatzTutoring from "@/assets/partners/andrewkatzco.jpg";
 import BlakeCarroll from "@/assets/partners/blakecarroll.jpg";
 import UltimateCPE from "@/assets/partners/ultimatecpe.jpg";
+import ArrowHeading from "@/components/ArrowHeading.astro";
 
 const {
   id = "partners",
@@ -25,72 +26,77 @@ const partners = [
     img: CPAExamClub, // Replace with actual import
     alt: "CPA Exam Club Logo",
     href: "https://cpaexamclub.com",
-    title: "CPA Exam Club"
+    title: "CPA Exam Club",
   },
-    {
+  {
     img: iPassCPA, // Replace with actual import
     alt: "I Pass The CPA Exam Logo",
     href: "https://ipassthecpaexam.com/",
-    title: "I Pass The CPA Exam"
+    title: "I Pass The CPA Exam",
   },
   {
     img: CPAExamBuzz, // Replace with actual import
     alt: "CPA Exam Buzz Logo",
     href: "https://cpaexambuzz.com",
-    title: "CPA Exam Buzz"
+    title: "CPA Exam Buzz",
   },
   {
     img: AndrewKatzTutoring, // Replace with actual import
     alt: "Andrew Katz Tutoring",
-    title: "Andrew Katz Tutoring"
+    title: "Andrew Katz Tutoring",
   },
   {
     img: BlakeCarroll, // Replace with actual import
     alt: "Blake Carroll Coaching",
     href: "https://blakecarrollcoaching.com",
-    title: "Blake Carroll Coaching"
+    title: "Blake Carroll Coaching",
   },
   {
     img: UltimateCPE,
     alt: "Ultimate CPE",
     href: "https://ultimatecpe.com",
-    title: "Ultimate CPE"
-  }
+    title: "Ultimate CPE",
+  },
 ];
 ---
-<section id={id} class={`py-16 md:py-24 border-t-3 border-light-primary ${className}`}>
+
+<section
+  id={id}
+  class={`py-16 md:py-24 border-t-3 border-light-primary ${className}`}
+>
   <div class="inner-section flex flex-col items-center">
-    
     <!-- Section Header -->
     <div class="text-center space-y-4 mb-12 md:mb-16">
-        <div class="flex flex-col gap-4">
-      <Heading 
-        tagName="h2" 
-        className="h2 font-bold text-light-primary"
-      >
-        {eyebrow} - {title}
-      </Heading>
-      </div>
-      <!-- {subtitle && (
+      <div class="flex flex-col gap-4">
+        <ArrowHeading
+          tagName="h2"
+          className="h3 font-bold text-light-primary tracking-wide"
+          containerClass="flex items-center justify-center mb-6"
+        >
+          {eyebrow} - {title}
+        </ArrowHeading>
+        <!-- {subtitle && (
         <p class="text-xl text-dark-secondary max-w-4xl mx-auto leading-relaxed">
           {subtitle}
         </p>
       )} -->
-    </div>
+      </div>
 
-    <!-- Partners Grid -->
-    <div class="w-full grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-      {partners.map((partner) => (
-        <ImageComponent
-          img={partner.img}
-          alt={partner.alt}
-          href={partner.href}
-          title={partner.title}
-          containerClass="flex items-center justify-center w-full h-full"
-          imageClass="w-full h-full object-contain group-hover:grayscale-0 transition-all duration-300"
-        />
-      ))}
+      <!-- Partners Grid -->
+      <div class="w-full grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {
+          partners.map((partner) => (
+            <ImageComponent
+              img={partner.img}
+              alt={partner.alt}
+              href={partner.href}
+              title={partner.title}
+              containerClass="flex items-center justify-center w-full h-full"
+              imageClass="w-full h-full object-contain group-hover:grayscale-0 transition-all duration-300"
+            />
+          ))
+        }
+      </div>
     </div>
-
   </div>
 </section>

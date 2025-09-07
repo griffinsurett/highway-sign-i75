@@ -7,6 +7,8 @@ import CTABlock from "@/components/CTABlock.astro";
 import { SiteData } from "@/SiteData";
 import { Icon } from "astro-icon/components";
 import ArrowHeading from "@/components/ArrowHeading.astro";
+import { Image } from "astro:assets";
+import BgImage from "@/assets/i75road.jpg";
 
 const {
   id = "features",
@@ -19,79 +21,88 @@ const {
 const courseFeatures = [
   {
     title: "Multiple Choice Tests",
-    description: "A Multiple Choice Test at the end of every video (or two) and a Cumulative Multiple Choice Test at the end of every chapter",
+    description:
+      "A Multiple Choice Test at the end of every video (or two) and a Cumulative Multiple Choice Test at the end of every chapter",
     icon: "fa6-solid:envelope",
   },
   {
     title: "Premium Videos",
-    description: "i-75 videos simplify learning, helping you really get the concepts without having to memorize them. Breaking down tough topics to make them easy to understand.",
+    description:
+      "i-75 videos simplify learning, helping you really get the concepts without having to memorize them. Breaking down tough topics to make them easy to understand.",
     icon: "fa6-solid:video",
   },
   {
     title: "Instructor-Led Simulations",
-    description: "All i-75 Simulations are Instructor Narrated Videos for Maximum learning purposes",
+    description:
+      "All i-75 Simulations are Instructor Narrated Videos for Maximum learning purposes",
     icon: "fa6-solid:video",
   },
   {
     title: "Final Review",
-    description: "The Final Review chapter includes narrated simulation videos and randomized testlets to enhance your understanding, and focus on areas needing improvement.",
+    description:
+      "The Final Review chapter includes narrated simulation videos and randomized testlets to enhance your understanding, and focus on areas needing improvement.",
     icon: "fa6-solid:video",
   },
   {
     title: "Amazon E-book",
-    description: "The Amazon E-book Contains 75 \"must know\" questions for your exam",
+    description:
+      'The Amazon E-book Contains 75 "must know" questions for your exam',
     icon: "fa6-solid:video",
-  }
+  },
 ];
 ---
 
 <section id={id} class={`py-16 md:py-24${className}`}>
-  <div class="w-85/100 max-w-7xl mx-auto">
-    
+  <div class="w-75/100 mx-auto">
     <!-- Section Header -->
     <div class="text-center space-y-4 mb-12 md:mb-16">
-          <ArrowHeading 
-  tagName="h2"
-  className="h3 font-bold text-light-primary tracking-wide"
-  containerClass="flex items-center justify-center mb-6"
->
+      <ArrowHeading
+        tagName="h2"
+        variant="secondary"
+        className="h3 font-bold text-light-primary tracking-wide"
+        containerClass="flex items-center justify-center mb-6"
+      >
         {title}
-</ArrowHeading>
+      </ArrowHeading>
     </div>
-
-    <!-- Features Container -->
-    <div class="mb-12 md:mb-16">
-      <HighwayCard class="bg-accent ring-3 ring-dark-primary px-8 py-6 rounded-b-4xl">
+    <div class="flex justify-center items-start gap-5 lg:gap-10">
+      <div class="image-section w-1/2 lg:sticky lg:top-0">
+        <Image
+          src={BgImage}
+          alt="i-75 Road"
+          class="w-full h-full"
+          loading="lazy"
+        />
+      </div>
+      <!-- Features Container -->
+      <div class="mb-12 md:mb-16 w-1/2">
         <!-- Features Grid Inside Single Container -->
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-8 lg:gap-12">
-          {courseFeatures.map((feature) => (
-            <div class="text-center group">
-              <div class="w-auto h-auto flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
-                <Icon name={feature.icon} size={30} class={"w-6 h-6 lg:w-12 lg:h-12"} />
-              </div>
-              
-              <Heading 
-                tagName="h3" 
-                className="h6 uppercase mb-3 font-bold text-dark-primary"
-              >
-                {feature.title}
-              </Heading>
-              
-              <p class="text-sm text-dark-primary leading-relaxed">
-                {feature.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </HighwayCard>
+        <ol
+          class="list-decimal list-inside flex flex-col justify-left items-start space-y-6 pl-4"
+        >
+          {
+            courseFeatures.map((feature) => (
+              <li class="text-left group h4 uppercase text-light-primary">
+                {/* <div class="w-full h-auto flex items-center justify-start mb-4 mx-auto transition-transform duration-300">
+                <Icon name={feature.icon} size={30} class={"text-light-primary w-6 h-6 lg:w-12 lg:h-12"} />
+              </div> */}
+
+                <span class="font-bold">{feature.title}</span>
+
+                <p class="text-lg text-light-primary capitalize leading-relaxed mt-2">
+                  {feature.description}
+                </p>
+              </li>
+            ))
+          }
+        </ol>
+        <!-- Call to Action -->
+        <CTABlock
+          containerClass="text-left flex flex-col justify-start items-start mt-10"
+          showSecondaryButton={false}
+          showSignature={false}
+        />
+      </div>
     </div>
-
-    <!-- Call to Action -->
-   <CTABlock 
-    showSecondaryButton={true}
-    showQuote={false}
-    signatureClass="order-first w-40 h-auto mx-auto"
-  />
-
   </div>
 </section>
