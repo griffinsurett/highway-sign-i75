@@ -15,6 +15,7 @@ import CourseOfferingsSection from "@/sections/CourseOfferingsSection.astro";
 import ContentWrapper from "@/components/ContentWrapper.astro";
 import OldAboutSection from "@/sections/OldAboutSection.astro";
 import RecentPassersSection from "@/sections/RecentPassersSection.astro";
+import BgImage from "@/assets/i75road.jpg";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -32,12 +33,15 @@ import RecentPassersSection from "@/sections/RecentPassersSection.astro";
     <ComparisonSection />
     <FeaturesSection />
   </div>
-  <!-- <CourseOfferingsSection/> -->
-  <TestimonialSection />
+  <div
+    class="relative bg-cover bg-center lg:bg-fixed py-16 md:py-24"
+    style={`background-image: url("${BgImage.src}");`}
+  >
+    <TestimonialSection />
+	    <AchievementsSection />
+  </div>
   <div class="border-3 border-light-primary pt-10 lg:pt-18">
-    <AchievementsSection />
     <PartnersSection />
-    <!-- <OldAboutSection/> -->
   </div>
   <FooterSection />
   <!-- </ContentWrapper> -->

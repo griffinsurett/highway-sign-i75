@@ -201,13 +201,7 @@ const testimonials = [
 ];
 ---
 
-<section id={id} class={` bg-light-secondary ${className}`}>
-  <div
-    class="relative bg-cover bg-center lg:bg-fixed min-h-[60vh] lg:min-h-[100vh]
-           flex flex-col items-center justify-between space-y-4
-           py-16 md:py-24"
-    style={`background-image: url("${BgImage.src}");`}
-  >
+<section id={id} class={`${className}`}>
   <div class="w-85/100 max-w-7xl mx-auto">
     
     <!-- Section Header -->
@@ -263,5 +257,4 @@ const testimonials = [
     signatureClass="order-first w-40 h-auto mx-auto invert"
   />
 </div>
-  </div>
 </section>
