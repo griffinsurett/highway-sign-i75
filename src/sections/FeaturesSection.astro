@@ -65,8 +65,8 @@ const courseFeatures = [
         {title}
       </ArrowHeading>
     </div>
-    <div class="flex justify-center items-start gap-5 lg:gap-10">
-      <div class="image-section w-1/2 lg:sticky lg:top-0">
+    <div class="flex flex-col lg:flex-row justify-center items-start gap-8 lg:gap-14">
+      <div class="image-section lg:w-1/2 lg:sticky lg:top-0">
         <Image
           src={BgImage}
           alt="i-75 Road"
@@ -75,14 +75,14 @@ const courseFeatures = [
         />
       </div>
       <!-- Features Container -->
-      <div class="mb-12 md:mb-16 w-1/2">
+      <div class="mb-12 md:mb-16 lg:w-1/2">
         <!-- Features Grid Inside Single Container -->
         <ol
-          class="list-decimal list-inside flex flex-col justify-left items-start space-y-6 pl-4"
+          class="list-decimal list-inside flex flex-col justify-left items-start space-y-6 lg:pl-4"
         >
           {
             courseFeatures.map((feature) => (
-              <li class="text-left group h4 uppercase text-light-primary">
+              <li class="text-center lg:text-left group h4 uppercase text-light-primary">
                 {/* <div class="w-full h-auto flex items-center justify-start mb-4 mx-auto transition-transform duration-300">
                 <Icon name={feature.icon} size={30} class={"text-light-primary w-6 h-6 lg:w-12 lg:h-12"} />
               </div> */}

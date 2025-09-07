@@ -5,9 +5,7 @@ import Heading from "@/components/Heading";
 import SocialLinks from "@/components/SocialLinks.astro";
 import { SiteData } from "@/SiteData";
 
-const {
-  class: className = "",
-} = Astro.props;
+const { class: className = "" } = Astro.props;
 
 const currentYear = new Date().getFullYear();
 
@@ -25,7 +23,10 @@ const resourceLinks = [
 ];
 
 const facebookGroups = [
-  { label: "i-75 Amazing Woman", href: "https://facebook.com/groups/i75amazingwoman" },
+  {
+    label: "i-75 Amazing Woman",
+    href: "https://facebook.com/groups/i75amazingwoman",
+  },
   { label: "Exam Support", href: "https://facebook.com/groups/i75examsupport" },
 ];
 
@@ -39,35 +40,40 @@ const cpaExamParts = [
 ];
 ---
 
-<footer class={`bg-primary text-light-primary border-x-3 border-light-primary ${className}`}>
+<footer
+  class={`bg-primary text-light-primary border-x-3 border-light-primary ${className}`}
+>
   <!-- Newsletter & Social Section -->
   <div class="py-12 md:py-16">
     <div class="inner-section mx-auto">
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-16">
+      <div
+        class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-16"
+      >
         <!-- Newsletter Signup -->
         <div class="flex-1 max-w-2xl">
-          <Heading tagName="h3" className="h3 font-bold text-light-primary mb-6">
+          <Heading
+            tagName="h3"
+            className="h3 font-bold text-light-primary mb-6"
+          >
             Subscribe To Our Newsletter!
           </Heading>
           <form class="flex flex-col sm:flex-row gap-2">
             <input
               type="email"
               placeholder="Your Email Address"
-              class="h5 flex-1 w-full px-6 py-4 rounded-xl bg-transparent border-2 border-white text-light-primary placeholder-white/80 focus:outline-none focus:border-white/90"
+              class="h5 flex-1 w-full px-6 py-4 rounded-xl bg-transparent border-2 border-light-primary text-light-primary placeholder-white/80 focus:outline-none focus:border-light-primary/90"
               required
             />
-            <Button
-              type="submit"
-              variant="borderWhite"
-            >
-              SUBSCRIBE
-            </Button>
+            <Button type="submit" variant="borderWhite"> SUBSCRIBE </Button>
           </form>
         </div>
 
         <!-- Social Media -->
         <div class="text-center">
-          <Heading tagName="h3" className="h3 font-bold text-left lg:text-center text-light-primary mb-4">
+          <Heading
+            tagName="h3"
+            className="h3 font-bold text-left lg:text-center text-light-primary mb-4"
+          >
             Follow Us!
           </Heading>
           <SocialLinks
@@ -80,118 +86,135 @@ const cpaExamParts = [
     </div>
   </div>
 
-
   <!-- Main Footer Content -->
   <div class="py-12 md:py-16 border-y-3 border-light-primary">
     <div class="w-85/100 max-w-7xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-        
         <!-- Company Links -->
         <div>
-          <Heading tagName="h4" className="h5 font-bold text-light-primary mb-6 uppercase tracking-wide">
+          <Heading
+            tagName="h4"
+            className="h5 font-bold text-light-primary mb-6 uppercase tracking-wide"
+          >
             Company
           </Heading>
           <ul class="space-y-4">
-            {companyLinks.map(link => (
-              <li>
-                <Button 
-                  variant="link"
-                  href={link.href} 
-                >
-                  {link.label}
-                </Button>
-              </li>
-            ))}
+            {
+              companyLinks.map((link) => (
+                <li>
+                  <Button variant="link" href={link.href}>
+                    {link.label}
+                  </Button>
+                </li>
+              ))
+            }
           </ul>
         </div>
 
         <!-- Resources -->
         <div>
-          <Heading tagName="h4" className="h5 font-bold text-light-primary mb-6 uppercase tracking-wide">
+          <Heading
+            tagName="h4"
+            className="h5 font-bold text-light-primary mb-6 uppercase tracking-wide"
+          >
             Resources
           </Heading>
           <ul class="space-y-4">
-            {resourceLinks.map(link => (
-              <li>
-                 <Button
-                  variant="link"
-                >
-                  {link.label}
-                 </Button>
-              </li>
-            ))}
+            {
+              resourceLinks.map((link) => (
+                <li>
+                  <Button variant="link">{link.label}</Button>
+                </li>
+              ))
+            }
           </ul>
         </div>
 
         <!-- Facebook Groups -->
         <div>
-          <Heading tagName="h4" className="h5 font-bold text-light-primary mb-6 uppercase tracking-wide">
+          <Heading
+            tagName="h4"
+            className="h5 font-bold text-light-primary mb-6 uppercase tracking-wide"
+          >
             Facebook Groups
           </Heading>
           <ul class="space-y-4">
-            {facebookGroups.map(group => (
-              <li>
-                <Button
-                  variant="link"
-                  href={group.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-light-primary/90 hover:text-light-primary text-base transition-colors duration-200"
-                >
-                  {group.label}
-                </Button>
-              </li>
-            ))}
+            {
+              facebookGroups.map((group) => (
+                <li>
+                  <Button
+                    variant="link"
+                    href={group.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-light-primary/90 hover:text-light-primary text-base transition-colors duration-200"
+                  >
+                    {group.label}
+                  </Button>
+                </li>
+              ))
+            }
           </ul>
         </div>
 
         <!-- Featured Special -->
         <div>
-          <Heading tagName="h4" className="h5 font-bold text-light-primary mb-6 uppercase tracking-wide">
+          <Heading
+            tagName="h4"
+            className="h5 font-bold text-light-primary mb-6 uppercase tracking-wide"
+          >
             Featured Special
           </Heading>
           <div class="text-light-primary/90">
-            <Button 
-                  variant="link"
-                >
-                  Summer Special
-            </Button>
+            <Button variant="link"> Summer Special </Button>
           </div>
         </div>
 
         <!-- Pick Your Part -->
         <div>
-          <Heading tagName="h4" className="h5 font-bold text-light-primary mb-6 uppercase tracking-wide">
+          <Heading
+            tagName="h4"
+            className="h5 font-bold text-light-primary mb-6 uppercase tracking-wide"
+          >
             Pick Your Part
           </Heading>
           <div class="grid grid-cols-2 gap-3">
-            {cpaExamParts.map(part => (
-              <a
-                href={part.href}
-                class="px-4 py-3 rounded-xl border-2 border-white/30 text-center text-light-primary font-bold text-base hover:border-white/60 transition-all duration-200 hover:scale-105"
-                style={`background-color: ${part.color}20;`}
-              >
-                {part.label}
-              </a>
-            ))}
+            {
+              cpaExamParts.map((part) => (
+                <a
+                  href={part.href}
+                  class="px-4 py-3 rounded-xl border-2 border-light-primary/30 text-center text-light-primary font-bold text-base hover:border-light-primary/60 transition-all duration-200 hover:scale-105"
+                  style={`background-color: ${part.color}20;`}
+                >
+                  {part.label}
+                </a>
+              ))
+            }
           </div>
         </div>
-
       </div>
     </div>
   </div>
 
   <!-- Bottom Bar -->
-    <div class="w-85/100 max-w-7xl mx-auto py-5">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-light-primary/80 text-lg">
-        <div class="flex items-center gap-2">
-          <span>©</span>
-          <span>{currentYear}</span>
-          <span>{SiteData.legalName}. All Rights Reserved.</span>
-        </div>
-        <div>
-          <span>Powered By <a href="https://griffinswebservices.com" class="hover:underline transition-all duration-300">Griffin's Web Services</a></span>
-        </div>
+  <div class="w-85/100 max-w-7xl mx-auto py-5">
+    <div
+      class="flex flex-col md:flex-row items-center justify-between gap-4 text-light-primary/80 text-lg"
+    >
+      <div class="flex items-center gap-2">
+        <span>©</span>
+        <span>{currentYear}</span>
+        <span>{SiteData.legalName}. All Rights Reserved.</span>
+      </div>
+      <div>
+        <span
+          >Powered By <a
+            href="https://griffinswebservices.com"
+            class="hover:underline transition-all duration-300"
+            >Griffin's Web Services</a
+          ></span
+        >
       </div>
     </div>
+  </div>
 </footer>
