@@ -3,6 +3,7 @@
 import StatCard from "@/components/StatCard.astro";
 import Heading from "@/components/Heading";
 import Button from "@/components/Button/Button";
+import HighwayCard from "@/components/HighwayCard.astro";
 
 const {
   id = "achievements",
@@ -54,6 +55,7 @@ const achievements = [
 
     <!-- Achievement Stats -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-16 md:mb-20">
+      <HighwayCard class="w-full">
       {
         achievements.map((achievement, index) => (
           <StatCard
@@ -66,6 +68,7 @@ const achievements = [
           />
         ))
       }
+      </HighwayCard>
     </div>
 
     <!-- Call to Action -->

@@ -13,7 +13,7 @@ import TestimonialSection from "@/sections/TestimonialSection.astro";
 import PartnersSection from "@/sections/PartnersSection.astro";
 import CourseOfferingsSection from "@/sections/CourseOfferingsSection.astro";
 import ContentWrapper from "@/components/ContentWrapper.astro";
-import OldAboutSection from "@/sections/OldAboutSection.astro";
+import WhyChooseUs from "@/sections/WhyChooseUs.astro";
 import RecentPassersSection from "@/sections/RecentPassersSection.astro";
 import BgImage from "@/assets/i75road.jpg";
 
@@ -31,14 +31,15 @@ import BgImage from "@/assets/i75road.jpg";
   <div class="border-3 border-light-primary pt-10 lg:pt-18">
     <AboutSection />
     <ComparisonSection />
-    <FeaturesSection />
   </div>
   <div
     class="relative bg-cover bg-center lg:bg-fixed py-16 md:py-24"
     style={`background-image: url("${BgImage.src}");`}
   >
+  	<WhyChooseUs />
+      <FeaturesSection />
     <TestimonialSection />
-	    <AchievementsSection />
+    <!-- <AchievementsSection /> -->
   </div>
   <div class="border-3 border-light-primary pt-10 lg:pt-18">
     <PartnersSection />

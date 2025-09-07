@@ -22,20 +22,19 @@ const {
 
   // Quote props
   quote = '"The Right Teacher Makes All The Difference."',
-  quoteClass = "text-center text-xl lg:text-2xl",
+  quoteClass = "text-center text-xl lg:text-2xl text-light-primary italic max-w-3xl",
   showQuote = true,
   showSignature = true,
   signatureClass = "w-40 h-auto mx-auto",
 
   // Layout props
-  containerClass = "flex flex-col justify-center items-center gap-3",
+  containerClass = "",
   
   // Spacing
-  gap = "gap-3",
 } = Astro.props;
 ---
 
-<div class={`${containerClass} ${gap}`}>
+<div class={`${containerClass} flex flex-col justify-center items-center gap-3`}>
   <!-- Primary Button -->
   {showPrimaryButton && (
     <Button 

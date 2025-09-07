@@ -1,31 +1,28 @@
 ---
 // src/components/StatCard.astro
 import Heading from "@/components/Heading";
+import HighwayCard from "./HighwayCard.astro";
 
 const {
   stat,
   label,
   description = "",
   class: className = "",
-  statClass = "text-primary font-black",
+  statClass = "font-black",
   labelClass = "text-dark-primary font-bold",
   descriptionClass = "text-dark-secondary",
 } = Astro.props;
 ---
 
-<div class={`relative text-center p-8 md:p-10 bg-white rounded-3xl shadow-2xl ring-1 ring-white/20 backdrop-blur-sm group overflow-hidden ${className}`}>
   <!-- Decorative background element -->
-  <div class="absolute inset-0 bg-gradient-to-br from-white via-white to-gray-50 opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
   
-  <!-- Subtle pattern overlay -->
-  <div class="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full transform translate-x-8 -translate-y-8 group-hover:scale-150 transition-transform duration-700"></div>
   
   <div class="relative z-10">
     <!-- Main Statistic -->
     <div class="mb-6">
       <Heading 
         tagName="div" 
-        className={`text-6xl md:text-7xl lg:text-8xl leading-none tracking-tight ${statClass} drop-shadow-sm`}
+        className={`text-light-primary text-6xl md:text-7xl lg:text-8xl leading-none tracking-tight ${statClass}`}
       >
         {stat}
       </Heading>
@@ -35,7 +32,7 @@ const {
     <div class="mb-4">
       <Heading 
         tagName="h3" 
-        className={`text-xl md:text-2xl leading-tight ${labelClass}`}
+        className={`text-xl md:text-2xl leading-tight text-light-primary ${labelClass}`}
       >
         {label}
       </Heading>
@@ -43,7 +40,7 @@ const {
     
     <!-- Optional Description -->
     {description && (
-      <p class={`text-base md:text-lg leading-relaxed ${descriptionClass}`}>
+      <p class={`text-base md:text-lg leading-relaxed text-light-secondary ${descriptionClass}`}>
         {description}
       </p>
     )}
@@ -51,4 +48,3 @@ const {
 
   <!-- Hover glow effect -->
   <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/20 via-transparent to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-</div>
