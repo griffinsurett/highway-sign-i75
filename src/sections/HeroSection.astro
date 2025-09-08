@@ -10,7 +10,7 @@ import PartsLoop from "@/components/PartsLoop.astro";
   <div
     class="relative bg-cover bg-center lg:bg-fixed min-h-[70vh] md:min-h-[80vh] xl:min-h-[100vh]
            flex flex-col items-center justify-center xl:justify-between space-y-4
-           pb-28 md:pb-36 lg:pb-44"
+           "
     style={`background-image: url("${BgImage.src}");`}
   >
     <div class="absolute inset-0 bg-dark-primary/35"></div>
@@ -35,7 +35,7 @@ import PartsLoop from "@/components/PartsLoop.astro";
     </div>
 
     <PartsLoop
-      class="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-2/8 z-50 flex justify-center"
+      class="left-1/2 bottom-0 z-50 flex justify-center items-center -mb-[100px]"
     />
   </div>
 </section>
