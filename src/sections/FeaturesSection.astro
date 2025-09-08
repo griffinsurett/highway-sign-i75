@@ -1,18 +1,18 @@
 ---
 // src/sections/FeaturesSection.astro
-import HighwayCard from "@/components/HighwayCard.astro";
 import Heading from "@/components/Heading";
-import Button from "@/components/Button/Button";
 import CTABlock from "@/components/CTABlock.astro";
-import { SiteData } from "@/SiteData";
-import { Icon } from "astro-icon/components";
 import ArrowHeading from "@/components/ArrowHeading.astro";
 import { Image } from "astro:assets";
-import BgImage from "@/assets/i75road.jpg";
-import Counter from "@/components/Counter";
+import { Icon } from "astro-icon/components";
 import Passer from "@/assets/passer.png";
-import FloatingCard from "@/components/FloatingCard.astro";
-import StraightArrow from "@/assets/straight-arrow.png";
+
+// Import feature images - you'll need to add these to your assets folder
+import MultipleChoiceImg from "@/assets/features/multiple-choice.jpg"; // Replace with actual images
+import PremiumVideosImg from "@/assets/features/premium-videos.jpg";
+import SimulationsImg from "@/assets/features/simulations.jpg";
+import FinalReviewImg from "@/assets/features/final-review.jpg";
+import EbookImg from "@/assets/features/ebook.jpg";
 
 const {
   id = "features",
@@ -26,40 +26,44 @@ const courseFeatures = [
   {
     title: "Multiple Choice Tests",
     description:
-      "A Multiple Choice Test at the end of every video (or two) and a Cumulative Multiple Choice Test at the end of every chapter",
-    icon: "fa6-solid:envelope",
+      "A Multiple Choice Test at the end of every video (or two) and a Cumulative Multiple Choice Test at the end of every chapter.",
+    image: Passer,
+    imageAlt: "Multiple choice test interface showing practice questions",
   },
   {
     title: "Premium Videos",
     description:
       "i75 videos simplify learning, helping you really get the concepts without having to memorize them. Breaking down tough topics to make them easy to understand. Say Goodbye to boring lectures!",
-    icon: "fa6-solid:video",
+    image: Passer,
+    imageAlt: "Darius Clark teaching in a premium video lesson",
   },
   {
     title: "Instructor-Led Simulations",
     description:
       "All i75 Simulations are Instructor Narrated Videos for Maximum learning purposes",
-    icon: "fa6-solid:video",
+    image: Passer,
+    imageAlt: "Interactive simulation exercise on computer screen",
   },
   {
     title: "Final Review",
     description:
       "The Final Review chapter includes narrated simulation videos and randomized testlets to enhance your understanding, and focus on areas needing improvement.",
-    icon: "fa6-solid:video",
+    image: Passer,
+    imageAlt: "Final review materials and study guide",
   },
   {
     title: "Amazon E-book",
     description:
       'The Amazon E-book Contains 75 "must know" questions for your exam',
-    icon: "fa6-solid:video",
+    image: Passer,
+    imageAlt: "i75 CPA Review Amazon e-book cover",
   },
 ];
 ---
-
 <section id={id} class={`outer-section ${className}`}>
-  <div class="w-75/100 mx-auto">
+  <div class="inner-section-sm mx-auto flex flex-col items-center justify-center">
     <!-- Section Header -->
-    <div class="text-center space-y-4 mb-12 md:mb-16">
+    <div class="text-center space-y-4 mb-8">
       <ArrowHeading
         tagName="h2"
         variant="secondary"
@@ -69,84 +73,57 @@ const courseFeatures = [
         {title}
       </ArrowHeading>
     </div>
-    <div class="flex flex-col lg:flex-row justify-center items-start gap-14">
-      <div class="image-section lg:w-2/5 lg:sticky lg:top-0 relative">
-        <Image
-          src={Passer}
-          alt="i75 Road"
-          class="w-full h-full"
-          loading="lazy"
-        />
-        <!-- Highway Floating Card -->
-        <FloatingCard
-          position="-bottom-6 -left-6"
-          exit
-          ariaLabel="Rated videos sign"
-        >
-          <div class="flex flex-col lg:flex-row items-center gap-2 mb-2">
-            <Image
-              src={StraightArrow}
-              alt="Right pointed arrow"
-              class="w-7 h-6"
-              loading="lazy"
-            />
-            <p class="text-lg font-bold text-light-primary">
-              #<Counter start={0} end={1} duration={300} client:visible />
-              Rated Videos
-            </p>
-          </div>
-          <p class="text-xs text-light-primary/90">
-            All Narrated By Darius Clark!
-          </p>
-        </FloatingCard>
 
-        <!-- Stats Floating Card -->
-        <FloatingCard position="-top-6 -right-6">
-          <div class="text-center">
-            <div
-              class="text-2xl font-bold text-light-primary flex items-center justify-center gap-1"
-            >
-              <Image
-                src={StraightArrow}
-                alt="Right pointed arrow"
-                class="w-6 h-5"
-                loading="lazy"
-              />
-              <Counter start={0} end={10} duration={2000} client:visible />k+
+    <!-- Features List -->
+    <ol class="space-y-20 md:space-y-24">
+      {courseFeatures.map((feature, index) => {
+        const isEven = index % 2 === 0;
+        const imageOrder = isEven ? "order-1 lg:order-1" : "order-1 lg:order-2";
+        const contentOrder = isEven ? "order-2 lg:order-2" : "order-2 lg:order-1";
+        
+        return (
+          <li class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div class={`${imageOrder} relative group`}>
+              <div class="relative overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/10">
+                <Image
+                  src={feature.image}
+                  alt={feature.imageAlt}
+                  class="w-full h-80 md:h-96 object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
             </div>
-            <div class="text-xs text-light-primary">Students helped</div>
-          </div>
-        </FloatingCard>
-      </div>
-      <!-- Features Container -->
-      <div class="mb-12 md:mb-16 lg:w-3/5">
-        <!-- Features Grid Inside Single Container -->
-        <ol
-          class="list-decimal list-inside flex flex-col justify-left items-start space-y-6 lg:pl-4"
-        >
-          {
-            courseFeatures.map((feature) => (
-              <li class="text-center lg:text-left group h4 uppercase text-light-primary">
-                {/* <div class="w-full h-auto flex items-center justify-start mb-4 mx-auto transition-transform duration-300">
-                <Icon name={feature.icon} size={30} class={"text-light-primary w-6 h-6 lg:w-12 lg:h-12"} />
-              </div> */}
 
-                <span class="font-bold">{feature.title}</span>
-
-                <p class="text-lg text-light-primary capitalize leading-relaxed mt-2">
+            <div class={`${contentOrder} space-y-6 h-full`}>
+              <div class="space-y-4 lg:sticky lg:top-0 flex flex-col gap-4">
+                <Heading 
+                  tagName="span" 
+                  className="h3 font-bold text-light-primary uppercase tracking-wide"
+                >
+                  {feature.title}
+                </Heading>
+                <p class="text-lg md:text-xl text-light-primary/90 leading-relaxed">
                   {feature.description}
                 </p>
-              </li>
-            ))
-          }
-        </ol>
-        <!-- Call to Action -->
+              </div>
+              
+              {/* <div class="inline-flex items-center gap-2 px-4 py-2 bg-light-primary/10 backdrop-blur-sm rounded-full border border-light-primary/20">
+                <span class="text-light-primary font-medium text-sm uppercase tracking-wide">
+                  Included in Course
+                </span>
+              </div> */}
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+
+    <!-- Call to Action -->
+       <!-- Call to Action -->
         <CTABlock
           containerClass="text-left flex flex-col justify-start items-start mt-10"
           showSecondaryButton={false}
           showSignature={false}
         />
-      </div>
-    </div>
   </div>
 </section>

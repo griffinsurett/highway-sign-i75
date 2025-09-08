@@ -72,12 +72,13 @@ const cpaExamParts = [
         <div class="text-center">
           <Heading
             tagName="h3"
-            className="h3 font-bold text-left lg:text-center text-light-primary mb-4"
+            className="h3 font-bold text-left text-light-primary mb-4"
           >
             Follow Us!
           </Heading>
           <SocialLinks
-            linkClass="w-15 h-15 hover:scale-110 rounded-lg flex items-center justify-center transition-all duration-200"
+            containerClass="flex gap-6"
+            linkClass="w-auto h-15 hover:scale-110 rounded-lg flex items-center justify-center transition-all duration-200"
             iconClass="text-light-primary"
             iconSize="24"
           />
@@ -88,7 +89,7 @@ const cpaExamParts = [
 
   <!-- Main Footer Content -->
   <div class="py-12 md:py-16 border-y-3 border-light-primary">
-    <div class="w-85/100 max-w-7xl mx-auto">
+    <div class="inner-section-sm mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
         <!-- Company Links -->
         <div>
@@ -197,7 +198,7 @@ const cpaExamParts = [
   </div>
 
   <!-- Bottom Bar -->
-  <div class="w-85/100 max-w-7xl mx-auto py-5">
+  <div class="inner-section mx-auto py-5">
     <div
       class="flex flex-col md:flex-row items-center justify-between gap-4 text-light-primary text-lg"
     >
