@@ -16,3 +16,15 @@ import "../styles/animations.css";
 <!-- Apple specific -->
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="var(--color-primary)" />
+<script>
+  // wait till DOM is ready
+  document.addEventListener("DOMContentLoaded", () => {
+    const rootStyles = getComputedStyle(document.documentElement);
+    const primary = rootStyles.getPropertyValue("--color-primary").trim();
+    if (primary) {
+      document
+        .querySelector('meta[name="theme-color"]')
+        ?.setAttribute("content", primary);
+    }
+  });
+</script>
