@@ -9,11 +9,10 @@ export const SiteData = {
   legalName: `i75 ${course} Review LLC`,
   Logo: Logo,
   tagline:
-    "Get On i-75 with Darius Clark, because The Right Teacher Makes All The Difference!",
-  description:
-    `Welcome to i75 ${course} Review, your clear and direct road to passing the ${course} exam. Led by Darius Clark, our course is designed to simplify complex topics and offer focused, practical insights that help you efficiently prepare for success. Whether you've struggled with other courses or are just starting your ${course} journey, i75 ${course} Review is here to guide you every step of the way.`,
-    mainCTAText: `Get On The Right Road To ${course}!`,
-    mainCTAurl: "/",
+    "Get On i75 with Darius Clark, because The Right Teacher Makes All The Difference!",
+  description: `Welcome to i75 ${course} Review, your clear and direct road to passing the ${course} exam. Led by Darius Clark, our course is designed to simplify complex topics and offer focused, practical insights that help you efficiently prepare for success. Whether you've struggled with other courses or are just starting your ${course} journey, i75 ${course} Review is here to guide you every step of the way.`,
+  mainCTAText: `Get On The Right Road To ${course}!`,
+  mainCTAurl: "/",
   domain: siteDomain,
   url: `https://${siteDomain}`,
 };

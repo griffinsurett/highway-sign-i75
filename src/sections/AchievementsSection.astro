@@ -8,7 +8,7 @@ import HighwayCard from "@/components/HighwayCard.astro";
 const {
   id = "achievements",
   class: className = "",
-  title = "Why Choose i-75 CPA Review?",
+  title = "Why Choose i75 CPA Review?",
   subtitle = "Join thousands of successful CPA candidates who trust our proven methodology",
   ctaText = "Start Your Success Story",
   ctaHref = "/get-started",
@@ -33,11 +33,7 @@ const achievements = [
 ];
 ---
 
-<section
-  id={id}
-  class={`relative py-20 md:py-32 overflow-hidden ${className}`}
->
-
+<section id={id} class={`relative py-20 md:py-32 overflow-hidden ${className}`}>
   <div class="relative min-h-[100vh] w-85/100 max-w-7xl mx-auto">
     <!-- Section Header -->
     <div class="text-center space-y-6 mb-16 md:mb-20">
@@ -56,18 +52,18 @@ const achievements = [
     <!-- Achievement Stats -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-16 md:mb-20">
       <HighwayCard class="w-full">
-      {
-        achievements.map((achievement, index) => (
-          <StatCard
-            stat={achievement.stat}
-            label={achievement.label}
-            description={achievement.description}
-            class={`transform hover:scale-110 transition-all duration-500 hover:rotate-1 ${
-              index % 2 === 0 ? "md:translate-y-4" : "md:-translate-y-4"
-            }`}
-          />
-        ))
-      }
+        {
+          achievements.map((achievement, index) => (
+            <StatCard
+              stat={achievement.stat}
+              label={achievement.label}
+              description={achievement.description}
+              class={`transform hover:scale-110 transition-all duration-500 hover:rotate-1 ${
+                index % 2 === 0 ? "md:translate-y-4" : "md:-translate-y-4"
+              }`}
+            />
+          ))
+        }
       </HighwayCard>
     </div>
 
@@ -79,7 +75,7 @@ const achievements = [
         <p
           class="text-xl md:text-2xl text-white italic max-w-3xl mx-auto leading-relaxed font-medium"
         >
-          "These numbers don't lie. When you choose i-75, you're choosing a
+          "These numbers don't lie. When you choose i75, you're choosing a
           proven path to CPA success."
         </p>
         <Button variant="borderWhite" href={ctaHref}>

@@ -16,93 +16,93 @@ const {
 const courseFeatures = [
   {
     title: "Multiple Choice Tests",
-    description: "A Multiple Choice Test at the end of every video (or two) and a Cumulative Multiple Choice Test at the end of every chapter",
+    description:
+      "A Multiple Choice Test at the end of every video (or two) and a Cumulative Multiple Choice Test at the end of every chapter",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>`
+    </svg>`,
   },
   {
     title: "Premium Videos",
-    description: "i-75 videos simplify learning, helping you really get the concepts without having to memorize them. Breaking down tough topics to make them easy to understand.",
+    description:
+      "i75 videos simplify learning, helping you really get the concepts without having to memorize them. Breaking down tough topics to make them easy to understand.",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />
-    </svg>`
+    </svg>`,
   },
   {
     title: "Instructor-Led Simulations",
-    description: "All i-75 Simulations are Instructor Narrated Videos for Maximum learning purposes",
+    description:
+      "All i75 Simulations are Instructor Narrated Videos for Maximum learning purposes",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l-1-3m1 3l-1-3m-16.5-3h9.75" />
-    </svg>`
+    </svg>`,
   },
   {
     title: "Final Review",
-    description: "The Final Review chapter includes narrated simulation videos and randomized testlets to enhance your understanding, test your knowledge, and focus on areas needing improvement.",
+    description:
+      "The Final Review chapter includes narrated simulation videos and randomized testlets to enhance your understanding, test your knowledge, and focus on areas needing improvement.",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.25-4.875c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0117.25 18.75h-10.5A2.25 2.25 0 014.5 16.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.124-.08M15 12.75a3 3 0 11-6 0 3 3 0 016 0z" />
-    </svg>`
+    </svg>`,
   },
   {
     title: "Amazon E-book",
-    description: "The Amazon E-book Contains 75 \"must know\" questions for your exam",
+    description:
+      'The Amazon E-book Contains 75 "must know" questions for your exam',
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0118 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-    </svg>`
-  }
+    </svg>`,
+  },
 ];
 ---
 
-<section id={id} class={`py-16 md:py-24 ${className}`}>
+<section id={id} class={`outer-section ${className}`}>
   <div class="w-85/100 max-w-7xl mx-auto">
-    
     <!-- Section Header -->
     <div class="text-center space-y-4 mb-12 md:mb-16">
-      <Heading 
-        tagName="h2" 
-        className="h2 font-bold text-dark-primary"
-      >
+      <Heading tagName="h2" className="h2 font-bold text-dark-primary">
         {title}
       </Heading>
-      {subtitle && (
-        <p class="text-xl text-dark-secondary max-w-3xl mx-auto">
-          {subtitle}
-        </p>
-      )}
+      {
+        subtitle && (
+          <p class="text-xl text-dark-secondary max-w-3xl mx-auto">
+            {subtitle}
+          </p>
+        )
+      }
     </div>
 
     <!-- Features Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 md:mb-16">
-      {courseFeatures.map((feature) => (
-        <FeatureCard
-          title={feature.title}
-          description={feature.description}
-          icon={feature.icon}
-        />
-      ))}
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 md:mb-16"
+    >
+      {
+        courseFeatures.map((feature) => (
+          <FeatureCard
+            title={feature.title}
+            description={feature.description}
+            icon={feature.icon}
+          />
+        ))
+      }
     </div>
 
     <!-- Call to Action -->
     <div class="text-center">
       <div class="bg-primary rounded-3xl p-8 md:p-12 space-y-6">
-        <Heading 
-          tagName="h3" 
-          className="h3 font-bold text-dark-primary"
-        >
+        <Heading tagName="h3" className="h3 font-bold text-dark-primary">
           Ready to Get Started?
         </Heading>
         <p class="text-lg text-dark-secondary max-w-2xl mx-auto">
-          Join thousands of successful CPA candidates who chose the right teacher and the right course.
+          Join thousands of successful CPA candidates who chose the right
+          teacher and the right course.
         </p>
-        <Button
-          variant="primary"
-          href={ctaHref}
-          className="text-lg px-10 py-5"
-        >
+        <Button variant="primary" href={ctaHref} className="text-lg px-10 py-5">
           {ctaText}
         </Button>
       </div>
     </div>
-
   </div>
 </section>

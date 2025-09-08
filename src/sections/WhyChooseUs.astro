@@ -18,7 +18,7 @@ const {
 ---
 <section 
   id={id} 
-  class={`py-16 md:py-24 text-light-primary ${className}`}
+  class={`outer-section text-light-primary ${className}`}
 >
   <div class="inner-section-sm space-y-8">
     <div class="text-center flex flex-col gap-5">
@@ -40,8 +40,9 @@ const {
     </Heading>
     </div>
     <!-- photo -->
-    <div class="text-lg lg:text-xl flex flex-col lg:flex-row gap-8 lg:gap-15 text-left text-light-primary leading-relaxed space-y-4 py-6">
-        <div class="image-section block lg:w-2/5 relative">
+    <div class="text-lg lg:text-xl flex flex-col lg:flex-row gap-10 lg:gap-20 text-left text-light-primary leading-relaxed space-y-4 py-6">
+      <div class="relative lg:w-2/5 h-auto">
+        <div class="image-section block h-auto sticky top-0">
         <Image
           src={Passer}
           alt="i75 Road"
@@ -72,7 +73,7 @@ const {
           </FloatingCard>
 
           <!-- Stats Floating Card -->
-          <FloatingCard position="-top-6 -right-6">
+          <FloatingCard position="top-0 -right-6">
             <div class="text-center">
               <div
                 class="text-2xl font-bold text-light-primary flex items-center justify-center gap-1"
@@ -89,14 +90,15 @@ const {
             </div>
           </FloatingCard>
       </div>
+      </div>  
       <!-- content -->
       <div class="flex flex-col justify-start items-center lg:w-3/5 lg:sticky lg:top-0">  
-      <p>
-       Named after the straightforward i75 highway, our course provides a clear path to CPA success. Darius Clark breaks down complex topics into simple, understandable concepts that actually stick. Say goodbye to boring lectures and overwhelming textbooks, just focused, effective preparation that gets you ready to score high on exam day!
-      </p>
-    <br>
-      <p>
+            <p>
        Here At i75 We ensure that all of our students get the help they need to pass The CPA Exam. No matter how busy your schedule is, our course is uniquely designed to cater to all. No matter how many sections you need to pass, or how much review material you currently have. i75 is the best option!
+      </p>
+      <br />
+        <p>
+       The Reason why i75 is the #1 CPA Review Course is because Darius Clark simplifies the CPA Exam Material. Here at i75 you are not expected to read anything or know anything prior to watching each video. When you finish watching each video you will be confident and ready to anticipate the next question! No one else spoon-feeds the material to you the way Darius does. That’s why i75 has the highest Passing Rate in the industry! You’ve seen our YouTube Videos and read about us on Facebook and LinkedIn. Let Darius do for you, what he’s done for many of your friends and co-workers!
       </p>
       </div>
     </div>
