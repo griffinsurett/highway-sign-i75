@@ -6,18 +6,54 @@ import StraightArrow from "@/assets/straight-arrow-down.png";
 import StraightArrowUp from "@/assets/straight-arrow.png";
 
 const {
-  tagName = "h2",
-  className = "h4 font-bold text-light-primary uppercase tracking-wide",
+  // ArrowHeading specific props
   containerClass = "flex items-center justify-center gap-3 mb-6",
   arrowClass = "w-16 h-12 -mb-18",
   arrowAlt = "Arrow",
   variant = "primary",
+  
+  // Heading props - extract and pass through
+  tagName = "h2",
+  className = "h4 font-bold text-light-primary uppercase tracking-wide",
+  before,
+  text,
+  after,
+  beforeClass = "",
+  textClass = "",
+  afterClass = "",
+  beforeId,
+  textId,
+  afterId,
+  beforeProps,
+  textProps,
+  afterProps,
+  
+  // Any remaining props
   ...props
 } = Astro.props;
 
 // Different layouts based on variant
 const isPrimary = variant === "primary";
 const isSecondary = variant === "secondary";
+
+// Collect all heading props
+const headingProps = {
+  tagName,
+  className,
+  before,
+  text,
+  after,
+  beforeClass,
+  textClass,
+  afterClass,
+  beforeId,
+  textId,
+  afterId,
+  beforeProps,
+  textProps,
+  afterProps,
+  ...props
+};
 ---
 
 {isPrimary && (
@@ -28,11 +64,7 @@ const isSecondary = variant === "secondary";
       class={arrowClass}
     />
     
-    <Heading 
-      tagName={tagName} 
-      className={className}
-      {...props}
-    >
+    <Heading {...headingProps}>
       <slot />
     </Heading>
     
@@ -46,11 +78,7 @@ const isSecondary = variant === "secondary";
 
 {isSecondary && (
   <div class="flex flex-col items-center justify-center mb-6">
-    <Heading 
-      tagName={tagName} 
-      className={className}
-      {...props}
-    >
+    <Heading {...headingProps}>
       <slot />
     </Heading>
     

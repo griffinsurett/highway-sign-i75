@@ -10,6 +10,7 @@ import AndrewKatzTutoring from "@/assets/partners/andrewkatzco.jpg";
 import BlakeCarroll from "@/assets/partners/blakecarroll.jpg";
 import UltimateCPE from "@/assets/partners/ultimatecpe.jpg";
 import ArrowHeading from "@/components/ArrowHeading.astro";
+import { course } from "@/SiteData";
 
 const {
   id = "partners",
@@ -67,14 +68,28 @@ const partners = [
     <!-- Section Header -->
     <div class="text-center space-y-4 mb-12 md:mb-16">
       <div class="flex flex-col gap-4">
-        <ArrowHeading
-          variant="secondary"
-          tagName="h2"
-          className="h3 font-bold text-light-primary tracking-wide"
-          containerClass="flex items-center justify-center mb-6"
-        >
-          {eyebrow} - {title}
-        </ArrowHeading>
+       <Heading
+        tagName="h2"
+        className="h2 font-semibold text-light-primary italic"
+        before={"Businesses and Services Recommended By "}
+        text={"i75 "}
+        after={course + " Review."}
+        beforeClass="beforeAndAfterHeadingClass"
+        afterClass="beforeAndAfterHeadingClass"
+      />
+        <!-- Main Title -->
+      <ArrowHeading
+        variant="secondary"
+        tagName="span"
+        className="h4 font-bold text-light-primary"
+        beforeClass="beforeAndAfterHeadingClass"
+        afterClass="beforeAndAfterHeadingClass"
+        text="We Partner with Many Other CPA Review programs that can benefit candidates as well as CPE programs that can help benefit those who have already passed."
+      />
+      <!-- Subtitle -->
+
+
+        
         <!-- {subtitle && (
         <p class="text-xl text-dark-secondary max-w-4xl mx-auto leading-relaxed">
           {subtitle}

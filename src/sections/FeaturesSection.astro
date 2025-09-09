@@ -69,17 +69,20 @@ const courseFeatures = [
         variant="secondary"
         className="h3 font-bold text-light-primary tracking-wide"
         containerClass="flex items-center justify-center mb-6"
-      >
-        {title}
-      </ArrowHeading>
+        beforeClass="beforeAndAfterHeadingClass"
+        afterClass="beforeAndAfterHeadingClass"
+        before="What's Included In Your "
+        text="i75"
+        after=" Course"
+      />
     </div>
 
     <!-- Features List -->
     <ol class="space-y-20 md:space-y-24">
       {courseFeatures.map((feature, index) => {
         const isEven = index % 2 === 0;
-        const imageOrder = isEven ? "order-1 lg:order-1" : "order-1 lg:order-2";
-        const contentOrder = isEven ? "order-2 lg:order-2" : "order-2 lg:order-1";
+        const imageOrder = isEven ? "order-2 lg:order-2" : "order-2 lg:order-1";
+        const contentOrder = isEven ? "order-1 lg:order-1" : "order-1 lg:order-2";
         
         return (
           <li class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">

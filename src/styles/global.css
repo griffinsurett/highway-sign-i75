@@ -9,6 +9,10 @@
   font-display: swap;
 }
 
+@utility beforeAndAfterHeadingClass {
+  @apply uppercase;
+}
+
 @theme {
   --color-dark-primary: var(--color-gray-900);
   --color-dark-secondary: var(--color-gray-700);
@@ -36,10 +40,10 @@
 
 @layer components {
   .h1 {
-    @apply text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight uppercase leading-[0.95];
+    @apply text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[0.95];
   }
   .h2 {
-    @apply text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight uppercase leading-[0.95];
+    @apply text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[0.95];
   }
   .h3 {
     @apply text-3xl sm:text-4xl font-extrabold tracking-tight leading-[0.95];

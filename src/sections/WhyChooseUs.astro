@@ -16,40 +16,42 @@ const {
   subtitle = "Unlike the major review companies, i75 caters its content directly to the needs of the students",
 } = Astro.props;
 ---
-<section 
-  id={id} 
-  class={`outer-section text-light-primary ${className}`}
->
+
+<section id={id} class={`outer-section text-light-primary ${className}`}>
   <div class="inner-section-sm space-y-8">
     <div class="text-center flex flex-col gap-5">
-    <!-- Main Title -->
-    <ArrowHeading
-      variant="secondary"
-      tagName="h2" 
-      className="h2 font-bold text-light-primary"
-    >
-      {title}
-    </ArrowHeading>
-    
-    <!-- Subtitle -->
-    <Heading 
-      tagName="h3" 
-      className="h4 font-semibold text-light-primary italic"
-    >
-      {subtitle}
-    </Heading>
+      <!-- Main Title -->
+      <ArrowHeading
+        variant="secondary"
+        tagName="h2"
+        className="h2 font-bold text-light-primary"
+        beforeClass="beforeAndAfterHeadingClass"
+        afterClass="beforeAndAfterHeadingClass"
+        before="Why Should You Choose "
+        text="i75"
+        after=" to be your CPA Review Course?"
+      />
+      <!-- Subtitle -->
+      <Heading
+        tagName="h3"
+        className="h4 font-semibold text-light-primary italic"
+      >
+        Unlike the major review companies, i75 caters its content directly to the needs of the students
+      </Heading>
     </div>
     <!-- photo -->
-    <div class="text-lg lg:text-xl flex flex-col lg:flex-row gap-10 lg:gap-20 text-left text-light-primary leading-relaxed space-y-4 py-6">
+    <div
+      class="text-lg lg:text-xl flex flex-col lg:flex-row gap-10 lg:gap-20 text-left text-light-primary leading-relaxed space-y-4 py-6"
+    >
       <div class="relative lg:w-2/5 h-auto">
         <div class="image-section block h-auto sticky top-0">
-        <Image
-          src={Passer}
-          alt="i75 Road"
-          class="w-full h-full"
-          loading="lazy"
-        />
-             <!-- Highway Floating Card -->
+          <Image
+            src={Passer}
+            alt="i75 Road"
+            class="w-full h-full"
+            loading="lazy"
+          />
+          <!-- Highway Floating Card -->
           <FloatingCard
             position="-bottom-6 -left-6"
             exit
@@ -89,25 +91,39 @@ const {
               <div class="text-xs text-light-primary">Students helped</div>
             </div>
           </FloatingCard>
+        </div>
       </div>
-      </div>  
       <!-- content -->
-      <div class="flex flex-col justify-start items-center lg:w-3/5 lg:sticky lg:top-0">  
-            <p>
-       Here At i75 We ensure that all of our students get the help they need to pass The CPA Exam. No matter how busy your schedule is, our course is uniquely designed to cater to all. No matter how many sections you need to pass, or how much review material you currently have. i75 is the best option!
-      </p>
-      <br />
+      <div
+        class="flex flex-col justify-start items-center lg:w-3/5 lg:sticky lg:top-0"
+      >
         <p>
-       The Reason why i75 is the #1 CPA Review Course is because Darius Clark simplifies the CPA Exam Material. Here at i75 you are not expected to read anything or know anything prior to watching each video. When you finish watching each video you will be confident and ready to anticipate the next question! No one else spoon-feeds the material to you the way Darius does. That’s why i75 has the highest Passing Rate in the industry! You’ve seen our YouTube Videos and read about us on Facebook and LinkedIn. Let Darius do for you, what he’s done for many of your friends and co-workers!
-      </p>
+          Here At i75 We ensure that all of our students get the help they need
+          to pass The CPA Exam. No matter how busy your schedule is, our course
+          is uniquely designed to cater to all. No matter how many sections you
+          need to pass, or how much review material you currently have. i75 is
+          the best option!
+        </p>
+        <br />
+        <p>
+          The Reason why i75 is the #1 CPA Review Course is because Darius Clark
+          simplifies the CPA Exam Material. Here at i75 you are not expected to
+          read anything or know anything prior to watching each video. When you
+          finish watching each video you will be confident and ready to
+          anticipate the next question! No one else spoon-feeds the material to
+          you the way Darius does. That’s why i75 has the highest Passing Rate
+          in the industry! You’ve seen our YouTube Videos and read about us on
+          Facebook and LinkedIn. Let Darius do for you, what he’s done for many
+          of your friends and co-workers!
+        </p>
       </div>
     </div>
     <CTABlock
-    showQuote={true}
-    quoteClass="text-center text-xl lg:text-2xl text-light-primary italic max-w-3xl order-first"
-    showSignature={false}
-    showSecondaryButton={true}
-    primaryButtonVariant="primary"
+      showQuote={true}
+      quoteClass="text-center text-xl lg:text-2xl text-light-primary italic max-w-3xl order-first"
+      showSignature={false}
+      showSecondaryButton={true}
+      primaryButtonVariant="primary"
     />
   </div>
 </section>

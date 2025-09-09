@@ -11,6 +11,7 @@ import Video from "/Did-You-Fail-The-CPA-Exam_-Maybe-Its-not-your-Faultseptember
 import ArrowHeading from "@/components/ArrowHeading.astro";
 import FloatingCard from "@/components/FloatingCard.astro";
 import { Image } from "astro:assets";
+import { course, SiteData } from "@/SiteData";
 ---
 
 <section
@@ -23,13 +24,16 @@ import { Image } from "astro:assets";
   <div
     class="relative inset-0 inner-section lg:w-4/6 h-full text-center flex flex-col gap-5 text-light-primary"
   >
-    <!-- <Heading tagName="span" className="h3 text-center uppercase">
-      Inside The i75 CPA Review Course
-    </Heading> -->
+
     <ArrowHeading
       tagName="h2"
-      className="h3 font-bold text-white uppercase tracking-wider bg-primary px-4 py-2 rounded-lg"
+      className="h3 font-bold text-white tracking-wider bg-primary px-4 py-2 rounded-lg"
       containerClass="flex items-center justify-center gap-4 mb-6"
+      before="Inside The  "
+      beforeClass="beforeAndAfterHeadingClass"
+      text="i75"
+      after={` ${course} Review Course`}
+      afterClass="beforeAndAfterHeadingClass"
     >
       Inside The i75 CPA Review Course
     </ArrowHeading>
