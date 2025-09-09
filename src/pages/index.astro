@@ -1,5 +1,4 @@
 ---
-import Heading from "@/components/Heading.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BaseHeader from "@/components/BaseHeader.astro";
 import HeroSection from "@/sections/HeroSection.astro";
@@ -15,7 +14,9 @@ import CourseOfferingsSection from "@/sections/CourseOfferingsSection.astro";
 import ContentWrapper from "@/components/ContentWrapper.astro";
 import WhyChooseUs from "@/sections/WhyChooseUs.astro";
 import RecentPassersSection from "@/sections/RecentPassersSection.astro";
+import Poll from "@/assets/poll.jpg";
 import BgImage from "@/assets/i75road.jpg";
+import { Image } from "astro:assets";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -33,12 +34,18 @@ import BgImage from "@/assets/i75road.jpg";
     <ComparisonSection />
   </div>
   <div
-    class="relative bg-cover bg-center lg:bg-fixed outer-section"
+    class="relative bg-cover bg-center bg-fixed outer-section"
     style={`background-image: url("${BgImage.src}");`}
   >
   	<WhyChooseUs />
       <FeaturesSection />
     <TestimonialSection />
+    <Image
+      src={Poll}
+      alt="i75 road background"
+      class="inner-section-sm h-full object-cover mt-10"
+      loading="lazy"
+    />
     <!-- <AchievementsSection /> -->
   </div>
   <div class="border-3 border-light-primary pt-10 lg:pt-18">
