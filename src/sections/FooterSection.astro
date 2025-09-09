@@ -30,7 +30,7 @@ const facebookGroups = [
   { label: "Exam Support", href: "https://facebook.com/groups/i75examsupport" },
 ];
 
-const cpaExamParts = [
+const Parts = [
   { label: "FAR", href: "/far", color: "var(--color-far)" },
   { label: "AUDIT", href: "/audit", color: "var(--color-audit)" },
   { label: "REG", href: "/reg", color: "var(--color-reg)" },
@@ -181,7 +181,7 @@ const cpaExamParts = [
           </Heading>
           <div class="grid grid-cols-2 gap-3">
             {
-              cpaExamParts.map((part) => (
+              Parts.map((part) => (
                 <a
                   href={part.href}
                   class="px-4 py-3 rounded-xl border-2 border-light-primary/30 text-center text-light-primary font-bold text-base hover:border-light-primary/60 transition-all duration-200 hover:scale-105"

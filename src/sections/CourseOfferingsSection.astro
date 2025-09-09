@@ -3,6 +3,7 @@
 import FeatureCard from "@/components/LoopComponents/FeatureCard.astro";
 import Heading from "@/components/Heading";
 import Button from "@/components/Button/Button";
+import { course } from "@/SiteData";
 
 const {
   id = "course-offerings",
@@ -63,15 +64,11 @@ const courseFeatures = [
     <!-- Section Header -->
     <div class="text-center space-y-4 mb-12 md:mb-16">
       <Heading tagName="h2" className="h2 font-bold text-dark-primary">
-        {title}
+        What's Included in Your Course
       </Heading>
-      {
-        subtitle && (
           <p class="text-xl text-dark-secondary max-w-3xl mx-auto">
-            {subtitle}
+            Everything you need to pass the {course} exam with confidence
           </p>
-        )
-      }
     </div>
 
     <!-- Features Grid -->

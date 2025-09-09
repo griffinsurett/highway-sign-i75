@@ -8,6 +8,7 @@ import StraightArrow from "@/assets/straight-arrow.png";
 import ComplexHighway from "@/assets/CPAExamMeme/wrong-road.jpg"; // complex interchange image
 import SimpleRoad from "@/assets/CPAExamMeme/right-road.jpg"; // straight road image
 import { Image } from "astro:assets";
+import { course } from "@/SiteData";
 
 const {
   id = "comparison",
@@ -19,12 +20,12 @@ const {
 const comparisons = [
   {
     img: ComplexHighway, // Replace with your complex highway interchange image
-    label: "THE CPA EXAM",
-    alt: "Complex highway interchange representing the difficulty of CPA exam",
+    label: `THE ${course} EXAM`,
+    alt: `Complex highway interchange representing the difficulty of ${course} exam`,
   },
   {
     img: SimpleRoad, // Replace with your i75 straight road image
-    label: "THE CPA EXAM WITH i75",
+    label: `THE ${course} EXAM WITH i75`,
     alt: "Simple straight road with i75 sign representing the straightforward path with our course",
   },
 ];
