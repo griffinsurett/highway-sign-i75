@@ -80,3 +80,7 @@
     @apply py-16 md:py-24;
   }
 }
+
+@utility sticky-section {
+  @apply lg:sticky lg:top-40
+}
